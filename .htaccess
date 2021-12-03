@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} -f
+RewriteRule ^(.*)$ $1? [L,QSA]
+
+RewriteRule . index.php [QSA]

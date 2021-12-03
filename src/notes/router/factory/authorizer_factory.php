@@ -3,6 +3,13 @@ namespace notes\router\factory;
 
 class authorizer_factory implements \srouter\interfaces\authorizer_factory {
 
+	public function __construct(
+		\notes\api\dependency_container $_dc
+	) {
+
+		$this->dc=$_dc;
+	}
+
 	public function build_authorizer(
 		string $_key
 	):?\srouter\interfaces\authorizer {
@@ -16,4 +23,6 @@ class authorizer_factory implements \srouter\interfaces\authorizer_factory {
 
 		return null;
 	}
+
+	private \notes\api\dependency_container $dc;
 }
