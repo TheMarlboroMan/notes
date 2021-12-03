@@ -1,0 +1,67 @@
+[
+	{
+		"path":"login",
+		"methods":{
+			"POST": {
+				"controller":"api::controller::login",
+				"method":"post",
+				"auth": [],
+				"arguments":[
+					{"name":"username", "source":"json", "type":"string"},
+					{"name":"pass", "source":"json", "type":"string"}
+				]
+			}
+		}
+	},
+	{
+		"path": "notes",
+		"methods":{
+			"GET": {
+				"controller": "api::controller::notes",
+				"method": "get",
+				"auth":["logged_in"],
+				"arguments":[]
+			},
+			"POST": {
+				"controller": "api::controller::notes",
+				"method": "post",
+				"auth":["logged_in"],
+				"arguments":[
+					{"name":"contents", "source":"json", "type":"string"}
+				]
+			}
+		}
+	},
+	{
+		"path":"notes/[id:int]",
+		"methods":{
+			"GET": {
+				"controller": "api::controller::notes",
+				"method": "info",
+				"auth":["logged_in", "user_owns_note"],
+				"arguments":[
+					{
+						"name":"id", "source":"uri", "type":"int"
+					}
+				]
+			},
+			"PATCH": {
+				"controller": "api::controller::notes",
+				"method": "patch",
+				"auth":["logged_in", "user_owns_note"],
+				"arguments":[
+					{"name":"id", "source":"uri", "type":"int"},
+					{"name":"contents", "source":"json", "type":"string"}
+				]
+			},
+			"DELETE": {
+				"controller": "api::controller::notes",
+				"method": "delete",
+				"auth":["logged_in", "user_owns_note"],
+				"arguments":[
+					{"name":"id", "source":"uri", "type":"int"}
+				]
+			}
+		}
+	}
+]
