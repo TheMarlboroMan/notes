@@ -7,9 +7,6 @@ class parameter_mapper_factory implements \srouter\interfaces\parameter_mapper_f
 		string $_name
 	):\srouter\interfaces\parameter_mapper {
 
-//TODO:
-die("unimplemented ".get_class($this));
-
-
+		return new \notes\router\underscore_parameter_mapper();
 	}
 }

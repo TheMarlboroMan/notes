@@ -3,7 +3,7 @@
 		"path":"api/login",
 		"methods":{
 			"POST": {
-				"controller":"api::controller::login",
+				"controller":"notes::api::controller::login",
 				"method":"post",
 				"auth": [],
 				"out":"json",
@@ -18,14 +18,14 @@
 		"path": "api/notes",
 		"methods":{
 			"GET": {
-				"controller": "api::controller::notes",
+				"controller": "notes::api::controller::notes",
 				"method": "get",
 				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[]
 			},
 			"POST": {
-				"controller": "api::controller::notes",
+				"controller": "notes::api::controller::notes",
 				"method": "post",
 				"auth":["logged_in"],
 				"out":"json",
@@ -39,7 +39,7 @@
 		"path":"api/notes/[id:int]",
 		"methods":{
 			"GET": {
-				"controller": "api::controller::notes",
+				"controller": "notes::api::controller::notes",
 				"method": "info",
 				"auth":["logged_in", "user_owns_note"],
 				"out":"json",
@@ -50,7 +50,7 @@
 				]
 			},
 			"PATCH": {
-				"controller": "api::controller::notes",
+				"controller": "notes::api::controller::notes",
 				"method": "patch",
 				"auth":["logged_in", "user_owns_note"],
 				"out":"json",
@@ -60,7 +60,7 @@
 				]
 			},
 			"DELETE": {
-				"controller": "api::controller::notes",
+				"controller": "notes::api::controller::notes",
 				"method": "delete",
 				"auth":["logged_in", "user_owns_note"],
 				"out":"json",
