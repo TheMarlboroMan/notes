@@ -18,7 +18,7 @@ class user_session implements \sorm\interfaces\entity {
 		return $this->created_at;
 	}
 
-	public function get_last_activity_at() :\DateTime {
+	public function get_last_activity_at() :?\DateTime {
 
 		return $this->last_activity_at;
 	}
@@ -61,6 +61,6 @@ class user_session implements \sorm\interfaces\entity {
 	private int                 $id;
 	private int                 $user_id;
 	private \DateTime           $created_at;
-	private \DateTime           $last_activity_at;
+	private ?\DateTime          $last_activity_at=null;
 	private string              $token;
 }

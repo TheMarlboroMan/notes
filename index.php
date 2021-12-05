@@ -3,16 +3,14 @@ require_once("src/autoload.php");
 
 try {
 
-	$config=new \notes\api\config(
-		"/notes/"
-	);
-
+	$config=new \notes\api\config(__DIR__."/conf/config.json");
 	$logger=new \log\out_logger(
 		new \log\default_formatter()
 	);
 
-	$dependency_container=new \notes\api\dependency_container();
+	$dependency_container=new \notes\api\dependency_container($config);
 
+	//Setting up the router...
 	$request_factory=new \notes\router\factory\request_factory();
 	$uri_transformer=new \notes\router\uri_transformer($config->get_uri_transformer_lead());
 	$path_mapper=new \notes\router\path_mapper(__DIR__."/conf/routes.json");
