@@ -1,6 +1,8 @@
 RewriteEngine On
 
+#Allow existing documents to be fetched...
 RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI} -f
 RewriteRule ^(.*)$ $1? [L,QSA]
 
-RewriteRule . index.php [QSA]
+#The rest goes to the router...
+RewriteRule . router.php [QSA]
