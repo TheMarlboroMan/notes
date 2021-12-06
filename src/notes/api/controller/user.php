@@ -36,7 +36,6 @@ class user extends \notes\api\controller\controller {
 				);
 			}
 
-echo "NOW".PHP_EOL;
 			$another_user=$entity_manager->fetch_one(
 				\notes\entities\user::class,
 				$entity_manager->get_fetch_builder()->str_equals_cs("username", $_username)

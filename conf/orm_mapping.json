@@ -30,12 +30,12 @@
 					"property":"last_updated_at",
 					"field":"last_updated_at",
 					"type":"datetime",
-					"nullable":false,
-					"default":"1970-01-01"
+					"nullable":true,
+					"default":null
 				},
 				{
-					"property":"text",
-					"field":"text",
+					"property":"contents",
+					"field":"contents",
 					"type":"string",
 					"nullable":false,
 					"default":""

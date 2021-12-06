@@ -17,7 +17,8 @@ class logged_in_authorizer implements \srouter\interfaces\authorizer {
 	}
 
 	public function authorize(
-		\srouter\interfaces\request $_request
+		\srouter\interfaces\request $_request,
+		\srouter\route $_route
 	) : bool {
 
 		$this->logger->info("will attempt to authorize request as logged in", self::log_module);
@@ -70,6 +71,6 @@ class logged_in_authorizer implements \srouter\interfaces\authorizer {
 	}
 
 	private \notes\api\dependency_container $dc;
-	private \log\logger_interface   $logger;
-	private \sorm\entity_manager    $entity_manager;
+	private \log\logger_interface           $logger;
+	private \sorm\entity_manager            $entity_manager;
 }

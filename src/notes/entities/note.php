@@ -25,7 +25,7 @@ class note implements \sorm\interfaces\entity, \JsonSerializable {
 
 	public function get_contents() : string {
 
-		return $this->get_contents;
+		return $this->contents;
 	}
 
 	public function set_id(int    $_value) : \notes\entities\note {
@@ -40,13 +40,13 @@ class note implements \sorm\interfaces\entity, \JsonSerializable {
 		return $this;
 	}
 
-	public function set_created_at(\DateTi$_value) : \notes\entities\note {
+	public function set_created_at(\DateTime $_value) : \notes\entities\note {
 
 		$this->created_at=$_value;
 		return $this;
 	}
 
-	public function set_last_updated_at(\DateTi$_value) : \notes\entities\note {
+	public function set_last_updated_at(?\DateTime $_value) : \notes\entities\note {
 
 		$this->last_updated_at=$_value;
 		return $this;
@@ -65,7 +65,7 @@ class note implements \sorm\interfaces\entity, \JsonSerializable {
 			"user_id" => $this->user_id,
 			"created_at" => $this->created_at,
 			"last_updated_at" => $this->last_updated_at,
-			"text" => $this->text
+			"contents" => $this->contents
 		];
 	}
 
