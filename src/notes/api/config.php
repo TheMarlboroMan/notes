@@ -36,10 +36,12 @@ class config {
 				"uri_transformer_lead",
 				"sorm_map_file",
 				"app_log_file",
+				"router_log_file",
 				"db_login",
 				"db_pass",
 				"db_host",
-				"db_schema"
+				"db_schema",
+				"verbose_errors"
 			]
 		as $key) {
 
@@ -67,6 +69,11 @@ class config {
 		return $this->app_log_file;
 	}
 
+	public function get_router_log_file() : string {
+
+		return $this->router_log_file;
+	}
+
 	public function get_db_login() : string {
 
 		return $this->db_login;
@@ -87,11 +94,18 @@ class config {
 		return $this->db_schema;
 	}
 
+	public function is_verbose_errors() : bool {
+
+		return $this->verbose_errors;
+	}
+
 	private string $uri_transformer_lead;
 	private string $sorm_map_file;
 	private string $app_log_file;
+	private string $router_log_file;
 	private string $db_login;
 	private string $db_pass;
 	private string $db_host;
 	private string $db_schema;
+	private bool   $verbose_errors;
 }

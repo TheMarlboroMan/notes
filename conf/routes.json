@@ -15,6 +15,28 @@
 		}
 	},
 	{
+		"path":"api/me",
+		"methods":{
+			"GET": {
+				"controller":"notes::api::controller::user",
+				"method":"get",
+				"auth":["logged_in"],
+				"out":"json",
+				"arguments":[]
+			},
+			"PATCH":{
+				"controller":"notes::api::controller::user",
+				"method":"patch",
+				"auth":["logged_in"],
+				"out":"json",
+				"arguments":[
+					{"name":"username", "source":"json","type":"string","nullable":true,"default":null},
+					{"name":"pass", "source":"json","type":"string","nullable":true,"default":null}
+				]
+			}
+		}
+	},
+	{
 		"path": "api/notes",
 		"methods":{
 			"GET": {

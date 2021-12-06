@@ -50,12 +50,35 @@ class dependency_container {
 		return $this->logger;
 	}
 
-	public function get_user_session() : \sorm\entities\user_session {
+/**
+*quick and dirty, both the user session and the user are set by the logged in
+*authorizer.
+*/
+	public function set_user_session(
+		\notes\entities\user_session $_value
+	) : \notes\api\dependency_container {
 
+		$this->user_session=$_value;
+		return $this;
 	}
 
-	public function get_logged_in_user() : \sorm\entities\user {
+	public function get_user_session() : ?\notes\entities\user_session {
 
+		return $this->user_session;
+	}
+
+	public function get_logged_in_user() : \notes\entities\user {
+
+		if(null===$this->logged_in_user) {
+
+			$this->logged_in_user=$this->get_entity_manager()
+				->fetch_by_id(
+					\notes\entities\user::class,
+					$this->get_user_session()->get_user_id()
+				);
+		}
+
+		return $this->logged_in_user;
 	}
 
 	private function get_pdo() :\PDO {
@@ -81,6 +104,6 @@ class dependency_container {
 	private \notes\api\config               $config;
 	private ?\log\logger_interface          $logger=null;
 	private ?\sorm\entity_manager           $entity_manager=null;
-	private ?\notes\entities\user_session   $current_session=null;
+	private ?\notes\entities\user_session   $user_session=null;
 	private ?\notes\entities\user           $logged_in_user=null;
 }

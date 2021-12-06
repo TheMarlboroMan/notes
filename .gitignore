@@ -1,3 +1,4 @@
 src/external/*
 !src/external/get.sh
 conf/config.json
+applog/*

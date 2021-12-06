@@ -2,8 +2,10 @@
 	"uri_transformer_lead":"/notes/",
 	"sorm_map_file":"/var/www/htdocs/sorm_map_file.json",
 	"app_log_file":"/var/www/htdocs/applog/log.log",
+	"router_log_file":"",
 	"db_login":"****",
 	"db_pass":"****",
 	"db_host":"****",
-	"db_schema":"****"
+	"db_schema":"****",
+	"verbose_errors":false
 }

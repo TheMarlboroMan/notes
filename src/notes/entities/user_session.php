@@ -46,7 +46,7 @@ class user_session implements \sorm\interfaces\entity {
 		return $this;
 	}
 
-	public function set_last_activity_at(\DateTime $_value) : \notes\entities\user_session {
+	public function set_last_activity_at(?\DateTime $_value) : \notes\entities\user_session {
 
 		$this->last_activity_at=$_value;
 		return $this;

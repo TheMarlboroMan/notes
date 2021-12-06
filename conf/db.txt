@@ -4,17 +4,23 @@ id INT UNSIGNED NOT NULL,
 created_at DATETIME DEFAULT NULL,
 last_login_at DATETIME,
 username VARCHAR(200) NOT NULL,
-pass VARCHAR(200) NOT NULL
+pass VARCHAR(255) NOT NULL
 )ENGINE=MYISAM;
+INSERT INTO users VALUES (1, NOW(), NULL, "default", "$2y$10$AU/dvifHwvY50BXv8QmWDOL93ob0R58RS2WOETFlStqI21UJcv65y");
+
+-- that's "default" too.
+-- TODO: username should be unique
 
 DROP TABLE IF EXISTS user_sessions;
 CREATE TABLE user_sessions (
 id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 user_id INT UNSIGNED NOT NULL,
 created_at DATETIME NOT NULL,
-last_activity_at DATETIME NOT NULL,
+last_activity_at DATETIME,
 token VARCHAR(100) NOT NULL
 )ENGINE=MYISAM;
+
+-- TODO: token should be unique
 
 DROP TABLE IF EXISTS notes;
 CREATE TABLE notes (

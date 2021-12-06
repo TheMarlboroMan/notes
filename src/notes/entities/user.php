@@ -1,7 +1,7 @@
 <?php
 namespace notes\entities;
 
-class user implements \sorm\interfaces\entity {
+class user implements \sorm\interfaces\entity, \jsonserializable {
 
 	public function get_id() : int {
 
@@ -58,6 +58,15 @@ class user implements \sorm\interfaces\entity {
 		return $this;
 	}
 
+	public function jsonserialize() : array {
+
+		return [
+			"id" => $this->id,
+			"created_at" => $this->created_at,
+			"last_login_at" => $this->last_login_at,
+			"username" => $this->username
+		];
+	}
 
 	private int                 $id;
 	private \DateTime           $created_at;

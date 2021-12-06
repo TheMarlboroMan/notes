@@ -42,10 +42,10 @@ class login extends controller {
 		}
 
 		$token=base64_encode(random_bytes(64));
-		$em->create->user_session(
+		$user_session=$em->create(
 			$em->build(\notes\entities\user_session::class)
 				->set_user_id($user->get_id())
-				->set_create_at(new \DateTime())
+				->set_created_at(new \DateTime())
 				->set_last_activity_at(null)
 				->set_token($token)
 		);
@@ -59,7 +59,7 @@ class login extends controller {
 		return new \srouter\controller_response(
 			\srouter\http_response::code_200_ok,
 			[
-				new \srouter\http_response_header("notes-auth-token", $token)
+				new \srouter\http_response_header("x-notes-auth-token", $token)
 			],
 			"ok"
 		);

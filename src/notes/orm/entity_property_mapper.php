@@ -3,7 +3,7 @@ namespace notes\orm;
 
 class entity_property_mapper implements \sorm\interfaces\entity_property_mapper {
 
-	public function getter_from_property(
+	public function setter_from_property(
 		string $_classname,
 		\sorm\internal\entity_definition_property $_prop
 	) : string {
@@ -11,7 +11,7 @@ class entity_property_mapper implements \sorm\interfaces\entity_property_mapper 
 		return "set_".$_prop->get_property();
 	}
 
-	public function setter_from_property(
+	public function getter_from_property(
 		string $_classname,
 		\sorm\internal\entity_definition_property $_prop)
 	: string {
