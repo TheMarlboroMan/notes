@@ -15,6 +15,20 @@
 		}
 	},
 	{
+		"path":"api/session",
+		"methods":{
+			"POST": {
+				"controller":"notes::api::controller::session",
+				"method":"post",
+				"auth": [],
+				"out":"json",
+				"arguments":[
+					{"name":"token", "source":"json", "type":"string"}
+				]
+			}
+		}
+	},
+	{
 		"path":"api/me",
 		"methods":{
 			"GET": {

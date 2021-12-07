@@ -8,7 +8,6 @@ class notes extends controller {
 */
 	public function get() : \srouter\controller_response {
 
-		$current_user=
 		$entity_manager=$this->dc->get_entity_manager();
 		$notes=$entity_manager->fetch(
 			\notes\entities\note::class,
