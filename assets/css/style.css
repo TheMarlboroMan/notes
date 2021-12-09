@@ -60,44 +60,6 @@ table {
 body {
 	color: #000;
 	font-family: monospace;
-	background: url(../images/background.jpg);
+	background: url(../images/background.jpg) no-repeat center center fixed;
 	background-size: cover;
-}
-
-#login_container {
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	min-height: 100vh;
-}
-
-#login_container h1 {
-
-	display: block;
-	font-size: 2em;
-	margin-bottom: 1em;
-}
-
-#form_login {
-
-	width: 30%;
-	padding: 1em;
-	background-color: rgba(255, 255, 255, 0.8);
-}
-
-#form_login label {
-
-	display: block;
-	margin-bottom: 1em;
-}
-
-#form_login .message {
-
-	margin-top: 1em;
-	padding: 1em;
-	background-color: rgba(255, 128, 128, 1);
-	color: red;
-	border: red 1px solid;
 }

@@ -8,13 +8,37 @@ class login {
 		this.message_container=this.form.querySelector("#login_message");
 		this.api=new api();
 
-		if(null!==this.storage.getItem("auth-token")) {
+		Promise.resolve(this.storage.getItem("auth-token"))
+		.then( (_token) => {
 
-			this.attempt_access(this.storage.getItem("auth-token"))
-			return;
-		}
+			if(null===_token) {
 
-		setup_form_submit(this.form, this.form.btn_login, () => {this.login();});
+				return false;
+			}
+
+			return this.attempt_access(_token)
+			.then( (_res) => {
+
+				if(! _res) {
+
+					this.storage.removeItem("auth-token");
+				}
+
+				return _res;
+			});
+		})
+		.then( (_res) => {
+
+			if(!_res) {
+
+				setup_form_submit(this.form, null, () => {this.login();});
+			}
+		})
+		.catch( (_err) => {
+
+			console.error(_err);
+			this.show_error(_err);
+		});
 	}
 
 	login() {
@@ -26,7 +50,7 @@ class login {
 			pass: this.form.pass.value.trim()
 		};
 
-		this.api.post("login", {payload}, [200, 400])
+		this.api.post("login", payload, [200, 400])
 		.then( (_res) => {
 
 			if(400===_res.status_code) {
@@ -52,7 +76,7 @@ class login {
 
 	attempt_access(_token) {
 
-		this.api.post("session", {token:_token}, [200, 404])
+		return this.api.post("session", {token:_token}, [200, 404])
 		.then( (_res) => {
 
 			if(404===_res.status_code) {
@@ -63,12 +87,6 @@ class login {
 			//TODO: attempt to load the new JS document and stuff.
 			console.log("all good now!");
 			return true;
-		})
-		.catch( (_err) => {
-
-			this.storage.removeItem("auth-token");
-			console.error(_err);
-			this.show_error(_err);
 		});
 	}
 

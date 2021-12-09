@@ -1,0 +1,162 @@
+button {
+
+	border: none;
+	border-radius: 1em;
+}
+
+button:hover {
+
+	filter: brightness(85%);
+}
+
+#user_toolbar {
+
+	background: #fff;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+	height: 50px;
+	display: grid;
+	grid-template-columns: 70% 30%;
+}
+
+#user_toolbar .info {
+
+}
+
+#user_toolbar .tools {
+
+	text-align: right;
+}
+
+#workspace {
+
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#workspace .note {
+
+	background-color: #ff9933;
+	padding: 1em;
+	margin: 1em;
+
+}
+
+#workspace .note .header {
+
+	padding: 1em;
+	display: grid;
+	grid-template-columns: 80% 20%;
+}
+
+#workspace .note .header .data {
+
+}
+
+#workspace .note .header .data dl {
+
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+#workspace .note .header .data dl dt{
+
+	font-weight: bold;
+}
+
+#workspace .note .header .data dl dd{
+
+}
+
+
+#workspace .note .header .tools {
+
+	text-align: right;
+}
+
+#workspace .note .header .tools button {
+
+	width: 2em;
+	cursor: pointer;
+}
+
+#workspace .note .header .tools button.delete {
+
+	color: #fff;
+	background-color: red;
+}
+
+#workspace .note .header .tools button.edit {
+
+	color: #fff;
+	background-color: royalblue;
+}
+
+#workspace .note .header .tools button.info {
+
+	color: #fff;
+	background-color: teal;
+}
+
+#workspace .note .body {
+
+}
+
+#workspace .note .body .text {
+
+	/*background: rgba(255, 255, 255, 0.1);*/
+	height: 20em;
+	width: 100%;
+	overflow-y: scroll;
+}
+
+#workspace .note .body textarea {
+
+	border: none;
+	background: rgba(255, 255, 255, 0.1);
+	height: 20em;
+	width: 100%;
+}
+
+#workspace .note.edit .body .text {
+
+	display: none;
+}
+
+#workspace .note.read .body textarea,
+#workspace .note.new .body textarea{
+
+	display: none;
+}
+
+#workspace .note.new .header .data dl {
+
+	display: none;
+}
+
+
+/* mobile */
+@media only screen and (max-device-width: 396px) {
+
+/*
+	body {font-size: 20px;}
+	input {font-size: 20px;}
+*/
+}
+
+/* desktop */
+@media only screen and (min-device-width: 397px) {
+
+	#workspace .note {
+
+		width: 400px;
+	}
+
+}
+
+
+
+
