@@ -21,3 +21,4 @@ class logout extends controller {
 		);
 	}
 }
+

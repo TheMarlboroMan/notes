@@ -43,6 +43,8 @@ class logged_in_authorizer implements \srouter\interfaces\authorizer {
 			return false;
 		}
 
+		$this->logger->info("found a session by ".$req_token, self::log_module);
+
 		//is the session expired? null is a new session, supposedly.
 		if(null!==$session->get_last_activity_at()) {
 

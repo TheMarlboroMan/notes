@@ -8,11 +8,24 @@ class api {
 
 	post(_endpoint, _payload, _expected) {
 
-		let method="POST";
+		return this.with_body("POST", _endpoint, _payload, _expected);
+	}
+
+	patch(_endpoint, _payload, _expected) {
+
+		return this.with_body("PATCH", _endpoint, _payload, _expected);
+	}
+
+	delete(_endpoint, _payload, _expected) {
+
+		return this.with_body("DELETE", _endpoint, _payload, _expected);
+	}
+
+	with_body(_method, _endpoint, _payload, _expected) {
 
 		return chain_fetch(
 			this.root+_endpoint,
-			{method:method, response:"full", type:"json", headers:this.build_headers(method), body:JSON.stringify(_payload)}
+			{method:_method, response:"full", type:"json", headers:this.build_headers(_method), body:JSON.stringify(_payload)}
 		)
 		.then( (_res) => {
 
@@ -82,7 +95,6 @@ class toolbar {
 			this.btn_new.addEventListener("click", () => {this.new_note();}, true);
 			this.btn_logout.addEventListener("click", () => {this.logout();}, true);
 
-			this.show();
 			//TODO: settings
 		})
 		.catch( (_err) => {
@@ -131,10 +143,11 @@ class toolbar {
 
 class note_builder {
 
-	constructor(_note_template, _workspace) {
+	constructor(_note_template, _workspace, _api) {
 
 		this.note_template=_note_template;
 		this.workspace=_workspace;
+		this.api=_api;
 	}
 
 	build() {
@@ -143,28 +156,89 @@ class note_builder {
 		this.workspace.insertBefore(clone, this.workspace.querySelector(".note:first-child"));
 		let dom_note=this.workspace.querySelector(".note:first-child");
 
-		return new note(dom_note);
+		return new note(dom_note, this.api);
 	}
 }
 
 class note {
 
-	constructor(_dom) {
+	constructor(_dom, _api) {
+
+		this.editing=false;
+
+		this.created_at=null;
+		this.last_updated_at=null;
+		this.id=0;
+		this.text="";
 
 		this.dom_root=_dom;
+		this.api=_api;
+
 		this.textarea=this.dom_root.querySelector("textarea");
 		this.text_container=this.dom_root.querySelector(".body .text");
 		this.btn_delete=this.dom_root.querySelector("button[name='btn_delete']");
 		this.btn_color=this.dom_root.querySelector("button[name='btn_color']");
+		this.btn_edit=this.dom_root.querySelector("button[name='btn_edit']");
 
 		this.color_index=1;
 		this.ev_btn_delete=this.btn_delete.addEventListener("click", () => {this.delete();}, true);
 		this.ev_btn_color=this.btn_color.addEventListener("click", () => {this.cycle_color();}, true);
+		this.ev_btn_edit=this.btn_edit.addEventListener("click", () => {this.toggle_edit();}, true);
+
+		//the textarea has the "canonical" text.
+		this.text=this.textarea.value.trim();
+	}
+
+	load_from_node(_node) {
+
+		this.id=_node.id;
+		this.created_at=_node.created_at;
+		this.last_updated_at=_node.last_updated_at;
+		this.text=_node.contents;
+
+		this.text_container.innerHTML=this.text_to_view(this.text);
 	}
 
 	setup_as_new() {
 
-		this.dom_root.classList.add("new");
+		this.dom_root.classList.add("new", "read");
+	}
+
+	setup_as_loaded() {
+
+		this.dom_root.classList.add("read");
+	}
+
+	toggle_edit() {
+
+		this.editing
+			? this.set_as_read()
+			: this.set_as_editing();
+
+		this.editing=!this.editing;
+	}
+
+	set_as_read() {
+
+		let text=this.textarea.value.trim();
+
+		//save if there were changes.
+		if(text != this.text && text.length) {
+
+			this.text=text;
+			this.text_container.innerHTML=this.text_to_view(this.text);
+
+			this.dom_root.classList.remove("edit");
+			this.dom_root.classList.add("read");
+			this.save();
+		}
+	}
+
+	set_as_editing() {
+
+		this.dom_root.classList.add("edit");
+		this.dom_root.classList.remove("read");
+		this.textarea.focus();
 	}
 
 	set_color(_index) {
@@ -187,12 +261,57 @@ class note {
 		this.set_color(index);
 	}
 
+	save() {
+
+		this.btn_edit.disabled="disabled";
+		Promise.resolve(true)
+		.then( () => {
+
+			return !this.id
+				? this.post()
+				: this.update()
+		})
+		.catch( (_err) => {
+
+			console.error(_err);
+			alert(_err);
+		})
+		.finally( () => {
+
+			this.btn_edit.disabled=false;
+		});
+	}
+
+	post() {
+
+		return this.api.post("notes", {contents:this.text}, [201])
+			.then( (_res) => {
+
+				let location=_res.headers.get("location");
+				this.id=parseInt(location.split("/").pop(), 10);
+				return true;
+			}
+		);
+
+		//TODO: Retrieve also the data for this note, so we can load its values again!!
+	}
+
+	update() {
+
+		return this.api.patch("notes/"+this.id, {contents:this.text}, [200])
+			.then( (_res) => {
+
+				console.log(_res);
+				return true;
+			}
+		);
+
+		//TODO: retrieve the saved data, so we can put the values in place...
+	}
+
 	delete() {
 
-		console.log(this.textarea.value);
-		console.log(this.text_container.innerText);
-
-		if(this.textarea.value.trim().length || this.text_container.innerText.length) {
+		if(this.id || this.textarea.value.trim().length) {
 
 			if(!confirm("remove this note?")) {
 
@@ -200,13 +319,48 @@ class note {
 			}
 		}
 
-		this.unload_events();
-		this.dom_root.remove();
+		this.btn_delete.disabled="disabled";
+		this.api.delete("notes/"+this.id, {}, [200])
+		.then( (_res) => {
+
+			this.unload_events();
+			this.dom_root.remove();
+		})
+		.catch( (_err) => {
+
+			this.btn_delete.disabled=false;
+			console.error(_err);
+			alert(_err);
+		});
+	}
+
+	text_to_view(_text) {
+
+	//TODO: sanitize!
+
+		let sanitizer_i=new sanitizer();
+
+		let mapped=_text.split("\n")
+			.map( (_item) => {
+
+
+				return "<p>"+sanitizer_i.html(_item)+"</p>";
+			})
+			.join("\n");
+
+		return mapped;
+	}
+
+	view_to_text(_text) {
+
+		//TODO
 	}
 
 	unload_events() {
 
 		this.btn_delete.removeEventListener("click", this.ev_btn_delete);
+		this.btn_color.removeEventListener("click", this.ev_btn_color);
+		this.btn_edit.removeEventListener("click", this.ev_btn_edit);
 		this.ev_btn_delete=null;
 	}
 }
@@ -214,23 +368,25 @@ class note {
 function start_ui(
 	_storage
 ) {
-	let api_i=new api(_storage.getItem("auth-token"));
-
-	//build workspace...
+	//build workspace DOM...
 	let workspace_prototype=document.getElementById("workspace");
 	let wsclone=document.importNode(workspace_prototype.content, true);
 	document.body.appendChild(wsclone);
 	let ws=document.querySelector("#user_workspace");
 
-	//build toolbar!
+	//build toolbar DOM...
 	let toolbar_prototype=document.getElementById("toolbar");
 	let tbclone=document.importNode(toolbar_prototype.content, true);
 	document.body.appendChild(tbclone);
 	let tb=document.querySelector("#user_toolbar");
 
+	//build instances...
+	let api_i=new api(_storage.getItem("auth-token"));
+
 	let builder=new note_builder(
 		document.getElementById("note"),
-		ws
+		ws,
+		api_i
 	);
 
 	let tbar=new toolbar(
@@ -240,7 +396,16 @@ function start_ui(
 		_storage
 	);
 
-	//TODO: do we need a note manager????
+	api_i.get("notes", [200])
+	.then( (_res) => {
 
-	tbar.set_username("newuser");
+		_res.body.forEach( (_node) => {
+
+			let note=builder.build();
+			note.setup_as_loaded();
+			note.load_from_node(_node);
+		});
+		tbar.show();
+	});
+
 }

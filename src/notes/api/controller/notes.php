@@ -17,12 +17,12 @@ class notes extends controller {
 		)->all();
 
 		//mangle the text length, for fun...
-		$notes=array_map(
-			function(\notes\entities\note $_note) :\notes\entities\note {
-				return $_note->set_contents(substr($_note->get_contents(), 0, 40));
-			},
-			$notes
-		);
+//		$notes=array_map(
+//			function(\notes\entities\note $_note) :\notes\entities\note {
+//				return $_note->set_contents(substr($_note->get_contents(), 0, 40));
+//			},
+//			$notes
+//		);
 
 		return new \srouter\controller_response(
 			200,

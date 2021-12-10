@@ -119,7 +119,8 @@ class login {
 
 			if(404===_res.status_code) {
 
-				throw new Error(_res.body);
+				this.show_error(_res.body);
+				return false;
 			}
 
 			if(200===_res.status_code) {

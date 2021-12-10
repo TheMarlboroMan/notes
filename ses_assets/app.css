@@ -147,8 +147,7 @@ button:hover {
 	display: none;
 }
 
-#user_workspace .note.read .body textarea,
-#user_workspace .note.new .body textarea{
+#user_workspace .note.read .body textarea {
 
 	display: none;
 }
