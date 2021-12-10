@@ -197,14 +197,9 @@ class note {
 		this.last_updated_at=_node.last_updated_at;
 		this.text=_node.contents;
 
-console.log("node", _node);
-console.log("this", this);
-
 		this.textarea.value=this.text;
 		this.set_dom_color(this.color_id);
 		this.text_container.innerHTML=this.text_to_view(this.text);
-
-
 	}
 
 	setup_as_new() {
@@ -283,8 +278,6 @@ console.log("this", this);
 		this.color_id=_index;
 
 		return new Promise( (_resolve, _reject) => {
-
-			console.log(this.id);
 
 			if(this.id) {
 
