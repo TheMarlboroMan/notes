@@ -363,19 +363,21 @@ class note {
 
 	text_to_view(_text) {
 
-	//TODO: maybe this happens in the backend?????
-	//TODO: sanitize!
 
-		let sanitizer_i=new sanitizer();
+		let t=document.createElement("b");
+		t.innerHTML=_text;
 
-		let mapped=_text.split("\n")
+		let mapped=_t.textContent.split("\n")
 			.map( (_item) => {
 
-				let contents=sanitizer_i.html(_item);
+				let contents=_item.trim();
 				if(!contents.length) {
 
 					contents="&nbsp;";
 				}
+//TODO: special markup goes here with regex...
+contents=contents.replace(/(\-\*)(.+)(\*\-)/, "<b>$2</b>");
+
 				return "<p>"+contents+"</p>";
 			})
 			.join("\n");
