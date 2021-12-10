@@ -24,14 +24,14 @@ class logged_in_authorizer implements \srouter\interfaces\authorizer {
 		$this->logger->info("will attempt to authorize request as logged in", self::log_module);
 
 		//does the request have the header?
-		if(!$_request->has_header("x-notes-auth-token")) {
+		if(!$_request->has_header("notes-auth_token")) {
 
 			$this->logger->info("missing auth header, aborting", self::log_module);
 			return false;
 		}
 
 		//does the header represent an existing session?
-		$req_token=$_request->get_header("x-notes-auth-token");
+		$req_token=$_request->get_header("notes-auth_token");
 		$session=$this->entity_manager->fetch_one(
 			\notes\entities\user_session::class,
 			$this->entity_manager->get_fetch_builder()->str_equals_cs("token", $req_token)

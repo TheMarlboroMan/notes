@@ -37,6 +37,7 @@ class config {
 				"sorm_map_file",
 				"app_log_file",
 				"router_log_file",
+				"secure_assets_dir",
 				"db_login",
 				"db_pass",
 				"db_host",
@@ -47,7 +48,7 @@ class config {
 
 			if(!property_exists($_json, $key)) {
 
-				throw new \Exception("missing $_key property in config file");
+				throw new \Exception("missing $key property in config file");
 			}
 
 			$this->$key=$_json->$key;
@@ -72,6 +73,12 @@ class config {
 	public function get_router_log_file() : string {
 
 		return $this->router_log_file;
+	}
+
+	public function get_secure_assets_dir() : string {
+
+		return $this->secure_assets_dir;
+
 	}
 
 	public function get_db_login() : string {
@@ -103,6 +110,7 @@ class config {
 	private string $sorm_map_file;
 	private string $app_log_file;
 	private string $router_log_file;
+	private string $secure_assets_dir;
 	private string $db_login;
 	private string $db_pass;
 	private string $db_host;

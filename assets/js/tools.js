@@ -174,6 +174,57 @@ function prepare_fetch(_data, _url) {
 	return fetch_data;
 }
 
+class sanitizer {
+
+	constructor() {
+
+		this.node=document.createElement('b');
+	}
+
+	html(_contents) {
+
+		if(null===_contents || undefined ==_contents) {
+
+			return "";
+		}
+
+		if(Array.isArray(_contents)) {
+
+			return _contents.map( (_value) => {
+
+				return this.html(_value);
+			});
+		}
+
+		if(typeof _contents === "object") {
+
+			let result={};
+			Object.keys(_contents).forEach( (_item) => {
+
+				result[_item]=this.html(_contents[_item]);
+			});
+			return result;
+		}
+
+
+		if(typeof _contents === "number") {
+
+			return _contents;
+		}
+
+/*
+		let result=String(_contents).replace(/[^\w. ]/gi, (_c) => {
+			//console.debug("found ", _c, "returns", '&#'+_c.charCodeAt(0)+';');
+			return '&#'+_c.charCodeAt(0)+';';
+		});
+		return result;
+*/
+		this.node.innerText=_contents;
+		return this.node.innerHTML;
+	}
+}
+
+
 function setup_form_submit(_form, _btn, _fn) {
 
 	_form.addEventListener(
@@ -205,29 +256,4 @@ function setup_form_submit(_form, _btn, _fn) {
 		},
 		true
 	);
-}
-
-class api {
-
-	constructor() {
-
-		this.root=document.baseURI+"api/";
-	}
-
-	post(_endpoint, _payload, _expected) {
-
-		return chain_fetch(
-			this.root+_endpoint,
-			{method:"POST", response:"full", type:"json", quickheaders:"json", body:JSON.stringify(_payload)}
-		)
-		.then( (_res) => {
-
-			if(-1===_expected.indexOf(_res.status_code)) {
-
-				throw new Error("invalid status code "+_res.status_code);
-			}
-
-			return _res;
-		});
-	}
 }

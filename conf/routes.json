@@ -1,5 +1,48 @@
 [
 	{
+		"path":"sassets/js/app.js",
+		"methods":{
+			"GET": {
+				"controller":"notes::api::controller::assets",
+				"method":"get_js",
+				"auth": [],
+				"out":"js",
+				"arguments":[
+					{"name":"tok", "source":"query", "type":"string"}
+				]
+			}
+		}
+	},
+	{
+		"path":"sassets/js/app.css",
+		"methods":{
+			"GET": {
+				"controller":"notes::api::controller::assets",
+				"method":"get_css",
+				"auth": [],
+				"out":"css",
+				"arguments":[
+					{"name":"tok", "source":"query", "type":"string"}
+				]
+			}
+		}
+	},
+	{
+		"path":"sassets/js/app.html",
+		"methods":{
+			"GET": {
+				"controller":"notes::api::controller::assets",
+				"method":"get_html",
+				"auth": [],
+				"out":"html",
+				"arguments":[
+					{"name":"tok", "source":"query", "type":"string"}
+				]
+			}
+		}
+	},
+
+	{
 		"path":"api/login",
 		"methods":{
 			"POST": {
@@ -11,6 +54,18 @@
 					{"name":"username", "source":"json", "type":"string"},
 					{"name":"pass", "source":"json", "type":"string"}
 				]
+			}
+		}
+	},
+	{
+		"path":"api/logout",
+		"methods":{
+			"POST": {
+				"controller":"notes::api::controller::logout",
+				"method":"post",
+				"auth": ["logged_in"],
+				"out":"json",
+				"arguments":[]
 			}
 		}
 	},

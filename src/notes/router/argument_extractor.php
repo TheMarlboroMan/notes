@@ -21,14 +21,14 @@ class argument_extractor implements \srouter\interfaces\argument_extractor {
 		//if the argument comes in the URI, just be done with that.
 		if($_parameter->get_source()==="uri") {
 
-			$value=$this->argument_maker->find_uri_argument($name, $_uri_args);
+			$value=$this->argument_maker->find_uri_argument($name, $_uri_args, $_parameter);
 			return $this->argument_maker->make_argument($value, $_parameter);
 		}
 
 		//same if it comes from the query string...
 		if($_parameter->get_source()==="query") {
 
-			$value=$this->argument_maker->find_query_argument($name, $_request);
+			$value=$this->argument_maker->find_query_argument($name, $_request, $_parameter);
 			return $this->argument_maker->make_argument($value, $_parameter);
 		}
 

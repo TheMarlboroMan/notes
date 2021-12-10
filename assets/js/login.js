@@ -1,12 +1,18 @@
 //define the login UI class
 class login {
 
-	constructor() {
+	constructor(_template, _storage) {
 
-		this.storage=window.localStorage;
-		this.form=document.getElementById("form_login");
-		this.message_container=this.form.querySelector("#login_message");
-		this.api=new api();
+		this.storage=_storage;
+
+		let clone=document.importNode(_template.content, true);
+		document.body.appendChild(clone);
+
+		this.container=document.querySelector("#login_container");
+		this.form=this.container.querySelector("#form_login");
+		this.message_container=this.container.querySelector("#login_message");
+		this.token="";
+		this.hide();
 
 		Promise.resolve(this.storage.getItem("auth-token"))
 		.then( (_token) => {
@@ -32,13 +38,27 @@ class login {
 			if(!_res) {
 
 				setup_form_submit(this.form, null, () => {this.login();});
+				this.show();
+				return;
 			}
+
+			this.start_application();
 		})
 		.catch( (_err) => {
 
 			console.error(_err);
 			this.show_error(_err);
 		});
+	}
+
+	show() {
+
+		this.container.style.display="flex";
+	}
+
+	hide() {
+
+		this.container.style.display="none";
 	}
 
 	login() {
@@ -50,7 +70,10 @@ class login {
 			pass: this.form.pass.value.trim()
 		};
 
-		this.api.post("login", payload, [200, 400])
+		chain_fetch(
+			document.baseURI+"api/login",
+			{method:"POST", response:"full", type:"json", quickheaders:"json", body:JSON.stringify(payload)}
+		)
 		.then( (_res) => {
 
 			if(400===_res.status_code) {
@@ -59,9 +82,21 @@ class login {
 				return;
 			}
 
-			let token=_res.headers.get("x-notes-auth-token");
-			this.storage.setItem("auth-token", token);
-			return this.attempt_access(token);
+			if(200===_res.status_code) {
+
+				let token=_res.headers.get("notes-auth_token");
+				this.storage.setItem("auth-token", token);
+				return this.attempt_access(token);
+			}
+
+			throw new Error("invalid status code");
+		})
+		.then( (_res) => {
+
+			if(_res) {
+
+				this.start_application();
+			}
 		})
 		.catch( (_err) => {
 
@@ -76,7 +111,10 @@ class login {
 
 	attempt_access(_token) {
 
-		return this.api.post("session", {token:_token}, [200, 404])
+		return chain_fetch(
+			document.baseURI+"api/session",
+			{method:"POST", response:"full", type:"json", quickheaders:"json", body:JSON.stringify({token:_token})}
+		)
 		.then( (_res) => {
 
 			if(404===_res.status_code) {
@@ -84,9 +122,12 @@ class login {
 				throw new Error(_res.body);
 			}
 
-			//TODO: attempt to load the new JS document and stuff.
-			console.log("all good now!");
-			return true;
+			if(200===_res.status_code) {
+
+				return true;
+			}
+
+			throw new Error("invalid status code");
 		});
 	}
 
@@ -96,4 +137,54 @@ class login {
 		this.message_container.classList.remove("hidden");
 	}
 
+	start_application() {
+
+		this.hide();
+		let tok=this.storage.getItem("auth-token").substr(0, 10);
+
+		return new Promise( (_resolve, _reject) => {
+
+			let uri=document.baseURI+"sassets/js/app.js?tok="+tok;
+			let script=document.createElement("script");
+			script.type="text/javascript";
+			script.src=uri;
+			script.onload=() => {
+
+				_resolve();
+			}
+
+			document.head.appendChild(script);
+		})
+		.then( (_res) => {
+
+			return new Promise( (_resolve, _reject) => {
+
+				let uri=document.baseURI+"sassets/js/app.css?tok="+tok;
+				let link=document.createElement("link");
+				link.type="text/css";
+				link.rel="stylesheet";
+				link.href=uri;
+				link.onload=() => {
+
+					_resolve();
+				}
+				document.head.appendChild(link);
+			});
+		})
+		.then( (_res) => {
+
+			return chain_fetch(
+				document.baseURI+"sassets/js/app.html?tok="+tok,
+				{method:"GET", response:"full", type:"text"}
+			)
+			.then( (_res) => {
+
+				document.body.innerHTML+=_res.body;
+			});
+		})
+		.then( (_res) => {
+
+			start_ui(this.storage);
+		});
+	}
 }

@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono" rel="stylesheet" type="text/css">
-	<link href="assets/css/style.css" rel="stylesheet" type="text/css">
-	<link href="assets/css/app.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="assets/js/tools.js"></script>
-
-	<title>notes</title>
-</head>
-<body>
-	<div id="user_toolbar">
+<template id="toolbar">
+	<div id="user_toolbar" class="hidden">
 
 		<div class="info">
 
@@ -44,8 +33,11 @@
 			</button>
 		</div>
 	</div>
-	<div id="workspace">
+</template>
+<template id="workspace">
+	<div id="user_workspace">
 	</div>
+</template>
 <template id="note">
 		<div class="note color_01">
 			<div class="header">
@@ -89,21 +81,3 @@
 			</div>
 		</div>
 </template>
-</body>
-<script type="text/javascript">
-
-
-/******************************************************************************/
-
-
-
-
-//add an existing note.
-//let existing=builder.build().setup_as_read("this is the text for the new readonly node");
-
-
-//add a new note
-//builder.build().setup_as_new();
-</script>
-</html>
-

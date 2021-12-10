@@ -6,7 +6,7 @@ class session extends controller {
 	const log_module="session";
 
 /**
-*checks a token
+*checks if the token that is posted exists and is vale.
 */
 	public function post(
 		$_token

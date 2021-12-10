@@ -59,7 +59,7 @@ class login extends controller {
 		return new \srouter\controller_response(
 			\srouter\http_response::code_200_ok,
 			[
-				new \srouter\http_response_header("x-notes-auth-token", $token)
+				new \srouter\http_response_header("notes-auth_token", $token)
 			],
 			"ok"
 		);
