@@ -13,6 +13,11 @@ class note implements \sorm\interfaces\entity, \JsonSerializable {
 		return $this->user_id;
 	}
 
+	public function get_color_id() : int {
+
+		return $this->color_id;
+	}
+
 	public function get_created_at() : \DateTime {
 
 		return $this->created_at;
@@ -40,6 +45,12 @@ class note implements \sorm\interfaces\entity, \JsonSerializable {
 		return $this;
 	}
 
+	public function set_color_id(int    $_value) : \notes\entities\note {
+
+		$this->color_id=$_value;
+		return $this;
+	}
+
 	public function set_created_at(\DateTime $_value) : \notes\entities\note {
 
 		$this->created_at=$_value;
@@ -63,6 +74,7 @@ class note implements \sorm\interfaces\entity, \JsonSerializable {
 		return [
 			"id" => $this->id,
 			"user_id" => $this->user_id,
+			"color_id" => $this->color_id,
 			"created_at" => $this->created_at,
 			"last_updated_at" => $this->last_updated_at,
 			"contents" => $this->contents
@@ -71,6 +83,7 @@ class note implements \sorm\interfaces\entity, \JsonSerializable {
 
 	private int                 $id;
 	private int                 $user_id;
+	private int                 $color_id;
 	private \DateTime           $created_at;
 	private ?\DateTime          $last_updated_at=null;
 	private string              $contents;

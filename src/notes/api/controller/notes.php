@@ -35,7 +35,8 @@ class notes extends controller {
 *creates a new note
 */
 	public function post(
-		string $_contents
+		string $_contents,
+		int $_color_id
 	) :\srouter\controller_response {
 
 		if(!strlen($_contents)) {
@@ -54,6 +55,7 @@ class notes extends controller {
 			)->set_user_id($this->dc->get_logged_in_user()->get_id())
 			->set_created_at(new \DateTime())
 			->set_contents($_contents)
+			->set_color_id($_color_id)
 		);
 
 		return new \srouter\controller_response(
@@ -91,7 +93,8 @@ class notes extends controller {
 */
 	public function patch(
 		int $_id,
-		string $_contents
+		string $_contents,
+		int $_color_id
 	) :\srouter\controller_response {
 
 		if(!strlen($_contents)) {
@@ -112,6 +115,7 @@ class notes extends controller {
 
 		$entity_manager->update(
 			$note->set_contents($_contents)
+				->set_color_id($_color_id)
 				->set_last_updated_at(new \DateTime())
 		);
 

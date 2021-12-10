@@ -169,6 +169,7 @@ class note {
 		this.created_at=null;
 		this.last_updated_at=null;
 		this.id=0;
+		this.color_id=1;
 		this.text="";
 
 		this.dom_root=_dom;
@@ -180,7 +181,6 @@ class note {
 		this.btn_color=this.dom_root.querySelector("button[name='btn_color']");
 		this.btn_edit=this.dom_root.querySelector("button[name='btn_edit']");
 
-		this.color_index=1;
 		this.ev_btn_delete=this.btn_delete.addEventListener("click", () => {this.delete();}, true);
 		this.ev_btn_color=this.btn_color.addEventListener("click", () => {this.cycle_color();}, true);
 		this.ev_btn_edit=this.btn_edit.addEventListener("click", () => {this.toggle_edit();}, true);
@@ -192,11 +192,19 @@ class note {
 	load_from_node(_node) {
 
 		this.id=_node.id;
+		this.color_id=_node.color_id;
 		this.created_at=_node.created_at;
 		this.last_updated_at=_node.last_updated_at;
 		this.text=_node.contents;
 
+console.log("node", _node);
+console.log("this", this);
+
+		this.textarea.value=this.text;
+		this.set_dom_color(this.color_id);
 		this.text_container.innerHTML=this.text_to_view(this.text);
+
+
 	}
 
 	setup_as_new() {
@@ -241,24 +249,50 @@ class note {
 		this.textarea.focus();
 	}
 
-	set_color(_index) {
-
-		this.dom_root.classList.remove("color_0"+this.color_index);
-		this.color_index=_index;
-		this.dom_root.classList.add("color_0"+this.color_index);
-
-		//TODO: Maybe save the note??? no, it might be empty!
-	}
-
 	cycle_color() {
 
-		let index=this.color_index+1;
+		this.btn_color.disabled="disabled";
+
+		let index=this.color_id+1;
 		if(index > 5) {
 
 			index=1;
 		}
 
-		this.set_color(index);
+		this.set_color(index)
+		.then( (_res) => {this.set_dom_color(this.color_id);})
+		.catch( (_err) => {
+
+			console.error(_err);
+			alert(_err);
+		})
+		.finally( () => {
+
+			this.btn_color.disabled=false;
+		});
+	}
+
+	set_dom_color(_color_id) {
+
+		[1,2,3,4,5].forEach( (_id) => {this.dom_root.classList.remove("color_0"+_id);});
+		this.dom_root.classList.add("color_0"+_color_id);
+	}
+
+	set_color(_index) {
+
+		this.color_id=_index;
+
+		return new Promise( (_resolve, _reject) => {
+
+			console.log(this.id);
+
+			if(this.id) {
+
+				return this.update().then( (_res)  => {_resolve(true);});
+			}
+
+			_resolve(true);
+		});
 	}
 
 	save() {
@@ -270,6 +304,11 @@ class note {
 			return !this.id
 				? this.post()
 				: this.update()
+		})
+		.then( () => {
+
+			return this.api.get("notes/"+this.id, [200])
+			.then( (_res) => {this.load_from_node(_res.body);});
 		})
 		.catch( (_err) => {
 
@@ -284,29 +323,24 @@ class note {
 
 	post() {
 
-		return this.api.post("notes", {contents:this.text}, [201])
-			.then( (_res) => {
+		return this.api.post("notes", {contents:this.text, color_id:this.color_id}, [201])
+		.then( (_res) => {
 
 				let location=_res.headers.get("location");
 				this.id=parseInt(location.split("/").pop(), 10);
 				return true;
 			}
-		);
-
-		//TODO: Retrieve also the data for this note, so we can load its values again!!
+		)
 	}
 
 	update() {
 
-		return this.api.patch("notes/"+this.id, {contents:this.text}, [200])
+		return this.api.patch("notes/"+this.id, {contents:this.text, color_id:this.color_id}, [200])
 			.then( (_res) => {
 
-				console.log(_res);
 				return true;
 			}
 		);
-
-		//TODO: retrieve the saved data, so we can put the values in place...
 	}
 
 	delete() {
@@ -336,6 +370,7 @@ class note {
 
 	text_to_view(_text) {
 
+	//TODO: maybe this happens in the backend?????
 	//TODO: sanitize!
 
 		let sanitizer_i=new sanitizer();
@@ -343,17 +378,16 @@ class note {
 		let mapped=_text.split("\n")
 			.map( (_item) => {
 
+				let contents=sanitizer_i.html(_item);
+				if(!contents.length) {
 
-				return "<p>"+sanitizer_i.html(_item)+"</p>";
+					contents="&nbsp;";
+				}
+				return "<p>"+contents+"</p>";
 			})
 			.join("\n");
 
 		return mapped;
-	}
-
-	view_to_text(_text) {
-
-		//TODO
 	}
 
 	unload_events() {

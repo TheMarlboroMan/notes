@@ -121,7 +121,8 @@
 				"auth":["logged_in"],
 				"out":"json",
 				"arguments":[
-					{"name":"contents", "source":"json", "type":"string"}
+					{"name":"contents", "source":"json", "type":"string"},
+					{"name":"color_id", "source":"json", "type":"int"}
 				]
 			}
 		}
@@ -147,7 +148,8 @@
 				"out":"json",
 				"arguments":[
 					{"name":"id", "source":"uri", "type":"int"},
-					{"name":"contents", "source":"json", "type":"string"}
+					{"name":"contents", "source":"json", "type":"string"},
+					{"name":"color_id", "source":"json", "type":"int"}
 				]
 			},
 			"DELETE": {

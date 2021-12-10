@@ -20,6 +20,13 @@
 					"default":0
 				},
 				{
+					"property":"color_id",
+					"field":"color_id",
+					"type":"int",
+					"nullable":false,
+					"default":1
+				},
+				{
 					"property":"created_at",
 					"field":"created_at",
 					"type":"datetime",
