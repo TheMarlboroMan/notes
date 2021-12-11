@@ -376,7 +376,10 @@ class note {
 					contents="&nbsp;";
 				}
 //TODO: special markup goes here with regex...
+
 contents=contents.replace(/(\-\*)(.+)(\*\-)/, "<b>$2</b>");
+contents=contents.replace(/(\-\/)(.+)(\/\-)/, "<i>$2</i>");
+contents=contents.replace(/(\-_)(.+)(_\-)/, "<u>$2</u>");
 
 				return "<p>"+contents+"</p>";
 			})
