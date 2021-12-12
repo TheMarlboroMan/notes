@@ -177,6 +177,9 @@ class note {
 
 		this.textarea=this.dom_root.querySelector("textarea");
 		this.text_container=this.dom_root.querySelector(".body .text");
+		this.created_at_container=this.dom_root.querySelector("dd[data-contents='created_at']");
+		this.last_updated_at_container=this.dom_root.querySelector("dd[data-contents='last_updated_at']");
+
 		this.btn_delete=this.dom_root.querySelector("button[name='btn_delete']");
 		this.btn_color=this.dom_root.querySelector("button[name='btn_color']");
 		this.btn_edit=this.dom_root.querySelector("button[name='btn_edit']");
@@ -193,13 +196,24 @@ class note {
 
 		this.id=_node.id;
 		this.color_id=_node.color_id;
-		this.created_at=_node.created_at;
-		this.last_updated_at=_node.last_updated_at;
+		this.created_at=new Date(_node.created_at.date);
+		this.last_updated_at=new Date(_node.last_updated_at.date);
 		this.text=_node.contents;
 
 		this.textarea.value=this.text;
 		this.set_dom_color(this.color_id);
 		this.text_container.innerHTML=this.text_to_view(this.text);
+		this.created_at_container.innerHTML=this.format_date(this.created_at);
+		this.last_updated_at_container.innerHTML=null===this.last_updated_at
+			? "never"
+			: this.format_date(this.last_updated_at);
+	}
+
+	format_date(_date) {
+
+	console.log(_date);
+
+		return _date.getDate()+"-"+(_date.getMonth()+1)+"-"+_date.getFullYear()+" "+_date.getHours()+":"+_date.getMinutes();
 	}
 
 	setup_as_new() {
@@ -225,14 +239,14 @@ class note {
 
 		let text=this.textarea.value.trim();
 
+		this.dom_root.classList.remove("edit");
+		this.dom_root.classList.add("read");
+
 		//save if there were changes.
 		if(text != this.text && text.length) {
 
 			this.text=text;
 			this.text_container.innerHTML=this.text_to_view(this.text);
-
-			this.dom_root.classList.remove("edit");
-			this.dom_root.classList.add("read");
 			this.save();
 		}
 	}
@@ -367,7 +381,7 @@ class note {
 		let t=document.createElement("b");
 		t.innerHTML=_text;
 
-		let mapped=_t.textContent.split("\n")
+		let mapped=t.textContent.split("\n")
 			.map( (_item) => {
 
 				let contents=_item.trim();
@@ -375,11 +389,11 @@ class note {
 
 					contents="&nbsp;";
 				}
-//TODO: special markup goes here with regex...
 
-contents=contents.replace(/(\-\*)(.+)(\*\-)/, "<b>$2</b>");
-contents=contents.replace(/(\-\/)(.+)(\/\-)/, "<i>$2</i>");
-contents=contents.replace(/(\-_)(.+)(_\-)/, "<u>$2</u>");
+				//TODO: this blows.
+				contents=contents.replace(/(\-\*)(.+)(\*\-)/, "<b>$2</b>");
+				contents=contents.replace(/(\-\/)(.+)(\/\-)/, "<i>$2</i>");
+				contents=contents.replace(/(\-_)(.+)(_\-)/, "<u>$2</u>");
 
 				return "<p>"+contents+"</p>";
 			})
@@ -427,6 +441,8 @@ function start_ui(
 		api_i,
 		_storage
 	);
+
+	//TODO: help part.
 
 	api_i.get("notes", [200])
 	.then( (_res) => {
