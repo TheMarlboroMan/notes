@@ -71,19 +71,43 @@ class api {
 	}
 }
 
+const status_regular=1;
+const status_locked=2;
+const status_settings=3;
+const status_help=4;
+
 class toolbar {
 
 	constructor(_dom, _note_builder, _api, _storage) {
 
-		this.dom_root=_dom;
-		this.username_container=_dom.querySelector("#username_container");
-		this.btn_new=_dom.querySelector("button[name='btn_new']");
-		this.btn_settings=_dom.querySelector("button[name='btn_settings']");
-		this.btn_logout=_dom.querySelector("button[name='btn_logout']");
 		this.note_builder=_note_builder;
 		this.api=_api;
 		this.sanitizer_i=new sanitizer();
 		this.storage=_storage;
+
+		this.status=status_regular;
+		this.nextstatus=0;
+
+		this.dom_root=_dom;
+		this.tools_container=_dom.querySelector("[data-role='tools_container']");
+
+		this.username_container=_dom.querySelector("#username_container");
+
+		this.button_container=_dom.querySelector("[data-role='button_container']");
+		this.btn_new=_dom.querySelector("button[name='btn_new']");
+		this.btn_settings=_dom.querySelector("button[name='btn_settings']");
+		this.btn_logout=_dom.querySelector("button[name='btn_logout']");
+		this.btn_help=_dom.querySelector("button[name='btn_help']");
+
+		this.update_user_container=_dom.querySelector("[data-role='user_update']");
+		this.btn_close_update_user=this.update_user_container.querySelector("button[name='btn_close']");
+		this.btn_send_update_user=this.update_user_container.querySelector("button[name='btn_send']");
+		this.input_username=this.update_user_container.querySelector("input[name='username']");
+		this.input_password=this.update_user_container.querySelector("input[name='password']");
+		this.input_repeat_password=this.update_user_container.querySelector("input[name='repeat_password']");
+
+		this.help_container=_dom.querySelector("[data-role='help']");
+		this.btn_close_help=this.help_container.querySelector("button[name='btn_close']");
 
 		this.api.get("me", [200])
 		.then( (_res) => {
@@ -94,8 +118,20 @@ class toolbar {
 
 			this.btn_new.addEventListener("click", () => {this.new_note();}, true);
 			this.btn_logout.addEventListener("click", () => {this.logout();}, true);
+			this.btn_send_update_user.addEventListener("click", () => {this.update_user("help");}, true);
 
-			//TODO: settings
+			this.btn_settings.addEventListener("click", () => {this.toggle_mode(status_settings, "+settings");}, true);
+			this.btn_help.addEventListener("click", () => {this.toggle_mode(status_help, "+help");}, true);
+			this.btn_close_update_user.addEventListener("click", () => {this.toggle_mode(status_regular, "-settings");}, true);
+			this.btn_close_help.addEventListener("click", () => {this.toggle_mode(status_regular, "-help");}, true);
+
+			let end_transition=() => {
+				this.status=this.nextstatus;
+				this.nextstatus=0;
+			};
+
+			this.update_user_container.addEventListener("transitionend", end_transition, true);
+			this.help_container.addEventListener("transitionend", end_transition, true);
 		})
 		.catch( (_err) => {
 
@@ -121,11 +157,101 @@ class toolbar {
 
 	new_note() {
 
+		if(status_regular !== this.status) {
+
+			return;
+		}
+
 		let note=this.note_builder.build();
 		note.setup_as_new();
 	}
 
+	toggle_mode(_new_status, _classname) {
+
+		if(status_locked===this.status) {
+
+			return;
+		}
+
+		this.status=status_locked;
+		this.nextstatus=_new_status;
+
+		let classname=_classname.substring(1);
+		switch(_classname.substring(0, 1)) {
+
+			case "+": this.tools_container.classList.add(classname); break;
+			case "-": this.tools_container.classList.remove(classname); break;
+		}
+	}
+
+	update_user() {
+
+		if(status_settings !== this.status) {
+
+			return;
+		}
+
+		let username=this.input_username.value.trim();
+		let password=this.input_password.value.trim();
+		let repeat_password=this.input_repeat_password.value.trim();
+
+		let payload={};
+
+		if(!username.length && !password.length) {
+
+			alert("username or password must be specified");
+			return;
+		}
+
+		if(username.length) {
+
+			payload.username=username;
+		}
+
+		if(password.length) {
+
+			if(password != repeat_password) {
+
+				alert("passwords must be the same");
+				return;
+			}
+
+			payload.pass=password;
+		}
+
+		this.status=status_locked;
+
+		this.api.patch("me", payload, [200, 400])
+		.then( (_res) => {
+
+			if(200===_res.status_code) {
+
+				this.set_username(username);
+				alert("your changes have been saved correctly");
+				return;
+			}
+
+			alert(_res.body);
+
+		})
+		.catch( (_err) => {
+
+			console.error(_err);
+			alert(_err);
+
+		})
+		.finally( () => {
+
+			this.status=status_settings;
+		});
+	}
+
 	logout() {
+
+		if(status_regular !== this.status) {
+
+			return;
+		}
 
 		this.api.post("logout", {}, [200])
 		.then( (_res) => {
@@ -187,8 +313,6 @@ class note {
 		this.ev_btn_delete=this.btn_delete.addEventListener("click", () => {this.delete();}, true);
 		this.ev_btn_color=this.btn_color.addEventListener("click", () => {this.cycle_color();}, true);
 		this.ev_btn_edit=this.btn_edit.addEventListener("click", () => {this.toggle_edit();}, true);
-
-		//the textarea has the "canonical" text.
 		this.text=this.textarea.value.trim();
 	}
 
@@ -197,7 +321,9 @@ class note {
 		this.id=_node.id;
 		this.color_id=_node.color_id;
 		this.created_at=new Date(_node.created_at.date);
-		this.last_updated_at=new Date(_node.last_updated_at.date);
+		this.last_updated_at=null===_node.last_updated_at
+			? null
+			: new Date(_node.last_updated_at.date);
 		this.text=_node.contents;
 
 		this.textarea.value=this.text;
@@ -210,8 +336,6 @@ class note {
 	}
 
 	format_date(_date) {
-
-	console.log(_date);
 
 		return _date.getDate()+"-"+(_date.getMonth()+1)+"-"+_date.getFullYear()+" "+_date.getHours()+":"+_date.getMinutes();
 	}
@@ -390,10 +514,15 @@ class note {
 					contents="&nbsp;";
 				}
 
-				//TODO: this blows.
-				contents=contents.replace(/(\-\*)(.+)(\*\-)/, "<b>$2</b>");
-				contents=contents.replace(/(\-\/)(.+)(\/\-)/, "<i>$2</i>");
-				contents=contents.replace(/(\-_)(.+)(_\-)/, "<u>$2</u>");
+				[
+					{start: "\\-\\*", end:"\\*\\-", tag:"b"},
+					{start: "\\-\\/", end:"\\/\\-", tag:"i"},
+					{start: "\\-_", end:"_\\-", tag:"u"}
+				].forEach( (_item) => {
+
+					let re=new RegExp("("+_item.start+")(.*)("+_item.end+")");
+					contents=contents.replace(re, "<"+_item.tag+">$2</"+_item.tag+">");
+				});
 
 				return "<p>"+contents+"</p>";
 			})
@@ -441,8 +570,6 @@ function start_ui(
 		api_i,
 		_storage
 	);
-
-	//TODO: help part.
 
 	api_i.get("notes", [200])
 	.then( (_res) => {

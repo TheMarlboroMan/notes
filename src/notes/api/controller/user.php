@@ -41,7 +41,7 @@ class user extends \notes\api\controller\controller {
 				$entity_manager->get_fetch_builder()->str_equals_cs("username", $_username)
 			);
 
-			if(null!==$another_user) {
+			if(null!==$another_user && $another_user->get_id() !== $current_user->get_id()) {
 
 				return new \srouter\controller_response(
 					400,

@@ -7,39 +7,83 @@
 
 		</div>
 
-		<div class="tools">
+		<div class="tools" data-role="tools_container">
 
-			<button
-				type="button"
-				name="btn_new"
-			>
-				<i class="fa fa-plus"></i>
-				new note
-			</button>
+			<div class="buttons" data-role="button_container">
 
-			<button
-				type="button"
-				name="btn_settings"
-			>
-				<i class="fa fa-cog"></i>
-				settings
-			</button>
+				<button
+					type="button"
+					name="btn_new"
+				>
+					<i class="fa fa-plus"></i>
+					new note
+				</button>
 
-			<button
-				type="button"
-				name="btn_help"
-			>
-				<i class="fa fa-info"></i>
-				help
-			</button>
+				<button
+					type="button"
+					name="btn_settings"
+				>
+					<i class="fa fa-cog"></i>
+					settings
+				</button>
 
-			<button
-				type="button"
-				name="btn_logout"
-			>
-				<i class="fa fa-door-open"></i>
-				logout
-			</button>
+				<button
+					type="button"
+					name="btn_help"
+				>
+					<i class="fa fa-info"></i>
+					help
+				</button>
+
+				<button
+					type="button"
+					name="btn_logout"
+				>
+					<i class="fa fa-door-open"></i>
+					logout
+				</button>
+
+			</div>
+
+			<div class="password_change" data-role="user_update">
+
+				update user data:
+				<input type="text" name="username" placeholder="username, optional">
+				<input type="password" name="password" placeholder="password, optional">
+				<input type="password" name="repeat_password" placeholder="repeat password">
+
+				<button
+					type="button"
+					name="btn_send"
+				>
+					<i class="fa fa-floppy-o"></i>
+					send
+				</button>
+
+				<button
+					type="button"
+					name="btn_close"
+				>
+					<i class="fa fa-times"></i>
+					close
+				</button>
+
+			</div>
+
+			<div class="help" data-role="help">
+
+				use -*text*- for <b>bold text</b>, -/text/- for <i>italics</i>,
+				-_text_- to <b>underline text</b>.
+
+				<button
+					type="button"
+					name="btn_close"
+				>
+					<i class="fa fa-times"></i>
+					close
+				</button>
+			</div>
+
 		</div>
 	</div>
 </template>
@@ -54,7 +98,7 @@
 					<dl>
 						<dt>Created at:</dt>
 						<dd data-contents="created_at"></dd>
-						<dt>Last updated:<dt>
+						<dt>Last updated:</dt>
 						<dd data-contents="last_updated_at"></dd>
 					</dl>
 				</div>
