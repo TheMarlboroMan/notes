@@ -485,7 +485,11 @@ class note {
 		}
 
 		this.btn_delete.disabled="disabled";
-		this.api.delete("notes/"+this.id, {}, [200])
+		(
+			this.id
+				? this.api.delete("notes/"+this.id, {}, [200])
+				: Promise.resolve(true)
+		)
 		.then( (_res) => {
 
 			this.unload_events();

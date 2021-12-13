@@ -3,8 +3,9 @@
 
 		<div class="info">
 
-			<i class="fa fa-user"></i> Welcome <b id="username_container">username</b>
-
+			<i class="fa fa-user"></i>
+			<span>Welcome</span>
+			<b id="username_container">username</b>
 		</div>
 
 		<div class="tools" data-role="tools_container">
@@ -14,58 +15,66 @@
 				<button
 					type="button"
 					name="btn_new"
+					title="new note"
 				>
 					<i class="fa fa-plus"></i>
-					new note
+					<span>new note</span>
 				</button>
 
 				<button
 					type="button"
 					name="btn_settings"
+					title="settings"
 				>
 					<i class="fa fa-cog"></i>
-					settings
+					<span>settings</span>
 				</button>
 
 				<button
 					type="button"
 					name="btn_help"
+					title="help"
 				>
 					<i class="fa fa-info"></i>
-					help
+					<span>help</span>
 				</button>
 
 				<button
 					type="button"
 					name="btn_logout"
+					title="logout"
 				>
 					<i class="fa fa-door-open"></i>
-					logout
+					<span>logout</span>
 				</button>
 
 			</div>
 
 			<div class="password_change" data-role="user_update">
 
-				update user data:
-				<input type="text" name="username" placeholder="username, optional">
-				<input type="password" name="password" placeholder="password, optional">
-				<input type="password" name="repeat_password" placeholder="repeat password">
+				<span>
+					update user data:
+				</span>
+				<input autocomplete="off" type="text" name="username" placeholder="username, optional">
+				<input autocomplete="off" type="password" name="password" placeholder="password, optional">
+				<input autocomplete="off" type="password" name="repeat_password" placeholder="repeat password">
 
 				<button
 					type="button"
 					name="btn_send"
+					title="send"
 				>
 					<i class="fa fa-floppy-o"></i>
-					send
+					<span>send</span>
 				</button>
 
 				<button
 					type="button"
 					name="btn_close"
+					title="close"
 				>
 					<i class="fa fa-times"></i>
-					close
+					<span>close</span>
 				</button>
 
 			</div>
@@ -78,9 +87,10 @@
 				<button
 					type="button"
 					name="btn_close"
+					title="close"
 				>
 					<i class="fa fa-times"></i>
-					close
+					<span>close</span>
 				</button>
 			</div>
 
@@ -96,9 +106,9 @@
 			<div class="header">
 				<div class="data">
 					<dl>
-						<dt>Created at:</dt>
+						<dt>Created:</dt>
 						<dd data-contents="created_at"></dd>
-						<dt>Last updated:</dt>
+						<dt>Updated:</dt>
 						<dd data-contents="last_updated_at"></dd>
 					</dl>
 				</div>
