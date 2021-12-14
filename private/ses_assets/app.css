@@ -1,0 +1,284 @@
+button {
+
+	border: none;
+	border-radius: 1em;
+}
+
+button:hover {
+
+	filter: brightness(85%);
+}
+
+#user_toolbar {
+
+	background: #fff;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	padding: 10px;
+/*	display: grid;*/
+	display: none;
+}
+
+#user_toolbar .tools {
+
+	overflow: hidden;
+	position: relative;
+}
+
+#user_toolbar .tools .buttons {
+
+	text-align: right;
+	position: absolute;
+	top: 0px;
+	z-index: 10;
+	width: 100%;
+}
+
+#user_toolbar .tools .password_change {
+
+	text-align: right;
+	position: absolute;
+	top: -200px;
+	z-index: 20;
+	width: 100%;
+	transition: all 0.4s ease;
+	background: #fff;
+}
+
+#user_toolbar .tools .help {
+
+	text-align: right;
+	position: absolute;
+	top: -200px;
+	z-index: 20;
+	width: 100%;
+	transition: all 0.4s ease;
+	background: #fff;
+}
+
+
+#user_toolbar .tools.settings .password_change {
+
+	top: 0px;
+}
+
+#user_toolbar .tools.help .help {
+
+	top: 0px;
+}
+
+#user_toolbar .tools button {
+
+	text-align: right;
+	padding: 0.5em;
+	cursor: pointer;
+}
+
+#user_workspace {
+
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#user_workspace .note {
+
+	padding: 1em;
+	margin: 1em;
+}
+
+#user_workspace .note.color_01 {
+	background-color:#f5e74c
+}
+
+#user_workspace .note.color_02 {
+	background-color: #ff9933;
+}
+
+#user_workspace .note.color_03 {
+	background-color: #95d81a;
+}
+
+#user_workspace .note.color_04 {
+	background-color: #1a8fd8;
+}
+
+#user_workspace .note.color_05 {
+	background-color: #cb5252;
+}
+
+#user_workspace .note .header {
+
+	padding: 1em;
+	display: grid;
+}
+
+#user_workspace .note .header .data {
+
+}
+
+#user_workspace .note .header .data dl {
+
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+#user_workspace .note .header .data dl dt{
+
+	font-weight: bold;
+}
+
+#user_workspace .note .header .data dl dd{
+
+}
+
+
+#user_workspace .note .header .tools {
+
+	text-align: right;
+}
+
+#user_workspace .note .header .tools button {
+
+	width: 2em;
+	cursor: pointer;
+}
+
+#user_workspace .note .header .tools button.delete {
+
+	color: #fff;
+	background-color: red;
+}
+
+#user_workspace .note .header .tools button.edit {
+
+	color: #fff;
+	background-color: royalblue;
+}
+
+#user_workspace .note .body {
+
+}
+
+#user_workspace .note .body .text {
+
+	/*background: rgba(255, 255, 255, 0.1);*/
+	height: 20em;
+	width: 100%;
+	overflow-y: scroll;
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#user_workspace .note .body textarea {
+
+	border: none;
+	background: rgba(255, 255, 255, 0.1);
+	height: 20em;
+	width: 100%;
+	resize: none;
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+#user_workspace .note .body textarea:focus {
+
+	outline: none;
+}
+
+#user_workspace .note.edit .body .text {
+
+	display: none;
+}
+
+#user_workspace .note.read .body textarea {
+
+	display: none;
+}
+
+#user_workspace .note.new .header .data dl {
+
+	display: none;
+}
+
+
+/* mobile */
+@media only screen and (max-device-width: 396px) {
+
+/*
+	body {font-size: 20px;}
+	input {font-size: 20px;}
+*/
+
+	#user_workspace {
+
+		margin-top: 60px;
+	}
+
+	#user_workspace .note {
+
+		width: 360px;
+	}
+
+	#user_toolbar {
+
+		grid-template-columns: 20% 80%;
+		height: 60px;
+	}
+
+	#user_toolbar .info span {
+
+		display: none;
+	}
+
+	button span {
+
+		display: none;
+	}
+
+	#user_toolbar .password_change input {
+
+		width: 4em;
+	}
+
+	#user_toolbar .password_change span {
+
+		display: none;
+	}
+
+	#user_workspace .note .header {
+
+		padding: 1em;
+		display: grid;
+		grid-template-columns: 75% 25%;
+	}
+}
+
+/* desktop */
+@media only screen and (min-device-width: 397px) {
+
+	#user_workspace {
+
+		margin-top: 50px;
+	}
+
+	#user_workspace .note {
+
+		width: 400px;
+	}
+
+	#user_toolbar {
+
+		grid-template-columns: 30% 70%;
+		height: 50px;
+	}
+
+	#user_workspace .note .header {
+
+		padding: 1em;
+		display: grid;
+		grid-template-columns: 70% 30%;
+	}
+}
+
+
+
+

@@ -1,0 +1,13 @@
+{
+	"uri_transformer_lead":"/notes/",
+	"sorm_map_file":"/mnt/dev/htdocs/notes/private/data/orm_mapping.json",
+	"routes_file":"/mnt/dev/htdocs/notes/private/data/routes.json",
+	"app_log_file":"/mnt/dev/htdocs/notes/instance/applog/log.log",
+	"router_log_file":"/mnt/dev/htdocs/notes/instance/applog/router.log",
+	"secure_assets_dir":"/mnt/dev/htdocs/notes/private/ses_assets/",
+	"db_login":"root",
+	"db_pass":"1234",
+	"db_host":"localhost",
+	"db_schema":"notes",
+	"verbose_errors":true
+}

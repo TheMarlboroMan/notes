@@ -1,0 +1,1098 @@
+2021-12-07 13:19:08 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-07 13:19:38 [ERROR] <exception_handler>: could not decode json request body: Syntax error - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-07 13:19:58 [ERROR] <exception_handler>: could not decode json request body: Syntax error - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-07 13:20:08 [ERROR] <exception_handler>: unknown property entity_inflator in sorm\entity_manager - #0 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(29): sorm\entity_manager->__set('entity_inflator', Object(sorm\internal\entity_inflator))
+#1 /mnt/dev/htdocs/notes/src/notes/api/dependency_container.php(30): sorm\entity_manager->__construct('/mnt/dev/htdocs...', Object(log\file_logger), Object(sorm\pdo_storage_interface), Object(notes\orm\factory\entity_factory), Object(notes\orm\entity_property_mapper), NULL, NULL, Object(notes\orm\entity_name_mapper))
+#2 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(13): notes\api\dependency_container->get_entity_manager()
+#3 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'lol')
+#4 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#5 {main}
+2021-12-07 13:20:08 [ERROR] <exception_handler>: unknown property entity_inflator in sorm\entity_manager - #0 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(29): sorm\entity_manager->__set('entity_inflator', Object(sorm\internal\entity_inflator))
+#1 /mnt/dev/htdocs/notes/src/notes/api/dependency_container.php(30): sorm\entity_manager->__construct('/mnt/dev/htdocs...', Object(log\file_logger), Object(sorm\pdo_storage_interface), Object(notes\orm\factory\entity_factory), Object(notes\orm\entity_property_mapper), NULL, NULL, Object(notes\orm\entity_name_mapper))
+#2 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(13): notes\api\dependency_container->get_entity_manager()
+#3 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'lol')
+#4 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#5 {main}
+2021-12-07 13:21:34 [ERROR] <exception_handler>: unknown property statement in sorm\fetch_collection - #0 /mnt/dev/htdocs/notes/src/external/sorm/fetch_collection.php(19): sorm\fetch_collection->__set('statement', Object(PDOStatement))
+#1 /mnt/dev/htdocs/notes/src/external/sorm/pdo_storage_interface.php(113): sorm\fetch_collection->__construct(Object(PDOStatement), Object(sorm\internal\entity_definition), Object(sorm\internal\entity_inflator), 1)
+#2 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(107): sorm\pdo_storage_interface->fetch(Object(sorm\internal\entity_definition), Object(sorm\internal\entity_inflator), NULL, Object(sorm\internal\fetch\comparison), NULL, Object(sorm\internal\limit_offset))
+#3 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(19): sorm\entity_manager->fetch_one('notes\\entities\\...', Object(sorm\internal\fetch\comparison))
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'lol')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-07 13:21:34 [ERROR] <exception_handler>: unknown property statement in sorm\fetch_collection - #0 /mnt/dev/htdocs/notes/src/external/sorm/fetch_collection.php(19): sorm\fetch_collection->__set('statement', Object(PDOStatement))
+#1 /mnt/dev/htdocs/notes/src/external/sorm/pdo_storage_interface.php(113): sorm\fetch_collection->__construct(Object(PDOStatement), Object(sorm\internal\entity_definition), Object(sorm\internal\entity_inflator), 1)
+#2 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(107): sorm\pdo_storage_interface->fetch(Object(sorm\internal\entity_definition), Object(sorm\internal\entity_inflator), NULL, Object(sorm\internal\fetch\comparison), NULL, Object(sorm\internal\limit_offset))
+#3 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(19): sorm\entity_manager->fetch_one('notes\\entities\\...', Object(sorm\internal\fetch\comparison))
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'lol')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-07 13:22:21 [INFO] <login>: invalid password for username default
+2021-12-07 13:22:26 [ERROR] <exception_handler>: could not create entity: Argument 1 passed to notes\entities\user_session::set_id() must be of the type int, string given, called in /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php on line 211 - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(50): sorm\entity_manager->create(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'default')
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-07 13:22:26 [ERROR] <exception_handler>: could not create entity: Argument 1 passed to notes\entities\user_session::set_id() must be of the type int, string given, called in /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php on line 211 - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(50): sorm\entity_manager->create(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'default')
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-07 13:23:30 [INFO] <login>: user default has logged in
+2021-12-07 14:01:51 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-07 14:02:21 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-07 14:02:58 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-07 14:03:08 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-07 14:21:54 [ERROR] <exception_handler>: __clone method called on non-object - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\session->post('MFNS89fHrjgxNuO...')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-07 14:21:54 [ERROR] <exception_handler>: __clone method called on non-object - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\session->post('MFNS89fHrjgxNuO...')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-07 14:22:22 [ERROR] <exception_handler>: __clone method called on non-object - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\session->post('MFNS89fHrjgxNuO...')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-07 14:22:22 [ERROR] <exception_handler>: __clone method called on non-object - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\session->post('MFNS89fHrjgxNuO...')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-07 14:23:49 [NOTICE] <session>: token MFNS89fHrjgxNuOWYWcs5u7/bzHFBn9Gt+5NVxHBAbrX8BCZEHQULGQ/WYGW8dbiFHa+nranQY6B/exbbi9tMg== expired
+2021-12-07 14:24:29 [NOTICE] <session>: token MFNS89fHrjgxNuOWYWcs5u7/bzHFBn9Gt+5NVxHBAbrX8BCZEHQULGQ/WYGW8dbiFHa+nranQY6B/exbbi9tMg== expired
+2021-12-07 14:24:48 [NOTICE] <session>: token MFNS89fHrjgxNuOWYWcs5u7/bzHFBn9Gt+5NVxHBAbrX8BCZEHQULGQ/WYGW8dbiFHa+nranQY6B/exbbi9tMg== expired
+2021-12-07 14:25:37 [NOTICE] <session>: token MFNS89fHrjgxNuOWYWcs5u7/bzHFBn9Gt+5NVxHBAbrX8BCZEHQULGQ/WYGW8dbiFHa+nranQY6B/exbbi9tMg== expired
+2021-12-09 07:15:47 [ERROR] <exception_handler>: missing compulsory argument 'username' - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(57): srouter\argument_maker->make_argument(NULL, Object(srouter\parameter))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-09 07:15:47 [ERROR] <exception_handler>: missing compulsory argument 'username' - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(57): srouter\argument_maker->make_argument(NULL, Object(srouter\parameter))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-09 07:18:46 [ERROR] <exception_handler>: missing compulsory argument 'username' - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(57): srouter\argument_maker->make_argument(NULL, Object(srouter\parameter))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-09 07:18:46 [ERROR] <exception_handler>: missing compulsory argument 'username' - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(57): srouter\argument_maker->make_argument(NULL, Object(srouter\parameter))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-09 07:18:56 [ERROR] <exception_handler>: missing compulsory argument 'username' - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(57): srouter\argument_maker->make_argument(NULL, Object(srouter\parameter))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-09 07:18:56 [ERROR] <exception_handler>: missing compulsory argument 'username' - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(57): srouter\argument_maker->make_argument(NULL, Object(srouter\parameter))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-09 07:18:59 [INFO] <login>: user default has logged in
+2021-12-10 06:43:10 [INFO] <login>: user default has logged in
+2021-12-10 07:27:18 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-10 08:05:08 [INFO] <login>: user default has logged in
+2021-12-10 08:11:15 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-10 08:53:27 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-10 08:54:18 [ERROR] <exception_handler>: Too few arguments to function srouter\argument_maker::find_query_argument(), 2 passed in /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php on line 31 and exactly 3 expected - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(31): srouter\argument_maker->find_query_argument('tok', Object(notes\router\request))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 08:54:18 [ERROR] <exception_handler>: Too few arguments to function srouter\argument_maker::find_query_argument(), 2 passed in /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php on line 31 and exactly 3 expected - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(31): srouter\argument_maker->find_query_argument('tok', Object(notes\router\request))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 08:54:43 [ERROR] <exception_handler>: Too few arguments to function srouter\argument_maker::find_query_argument(), 2 passed in /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php on line 31 and exactly 3 expected - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(31): srouter\argument_maker->find_query_argument('tok', Object(notes\router\request))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 08:54:43 [ERROR] <exception_handler>: Too few arguments to function srouter\argument_maker::find_query_argument(), 2 passed in /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php on line 31 and exactly 3 expected - #0 /mnt/dev/htdocs/notes/src/notes/router/argument_extractor.php(31): srouter\argument_maker->find_query_argument('tok', Object(notes\router\request))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(291): notes\router\argument_extractor->extract(Object(srouter\parameter), Object(notes\router\request), Array)
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(101): srouter\router->extract_arguments('json', Array, Object(notes\router\request), Array)
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 08:55:33 [ERROR] <exception_handler>: Call to undefined method sorm\fetch::str_starts_by_cs() - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\assets->get('5XXKaT27iK')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-10 08:55:33 [ERROR] <exception_handler>: Call to undefined method sorm\fetch::str_starts_by_cs() - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\assets->get('5XXKaT27iK')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-10 08:56:18 [ERROR] <assets>: unable to locate app.js file
+2021-12-10 08:56:47 [ERROR] <exception_handler>: syntax error, unexpected '$contents' (T_VARIABLE) - #0 [internal function]: {closure}('notes\\api\\contr...')
+#1 [internal function]: spl_autoload_call('notes\\api\\contr...')
+#2 /mnt/dev/htdocs/notes/src/notes/router/factory/controller_factory.php(16): class_exists('notes\\api\\contr...')
+#3 /mnt/dev/htdocs/notes/src/external/srouter/router.php(202): notes\router\factory\controller_factory->build_controller('notes::api::con...')
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(106): srouter\router->build_controller('notes::api::con...')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-10 08:56:47 [ERROR] <exception_handler>: syntax error, unexpected '$contents' (T_VARIABLE) - #0 [internal function]: {closure}('notes\\api\\contr...')
+#1 [internal function]: spl_autoload_call('notes\\api\\contr...')
+#2 /mnt/dev/htdocs/notes/src/notes/router/factory/controller_factory.php(16): class_exists('notes\\api\\contr...')
+#3 /mnt/dev/htdocs/notes/src/external/srouter/router.php(202): notes\router\factory\controller_factory->build_controller('notes::api::con...')
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(106): srouter\router->build_controller('notes::api::con...')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-10 08:56:51 [ERROR] <assets>: unable to locate app.js file in 0
+2021-12-10 09:12:26 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-10 09:12:45 [ERROR] <exception_handler>: method does not exist for controller - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-10 09:12:45 [ERROR] <exception_handler>: method does not exist for controller - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-10 10:11:38 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:11:38 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:12:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:12:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:15:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:15:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:17:39 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:17:39 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:17:45 [ERROR] <exception_handler>: could not build controller 'notes::api::controller::logout' - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(106): srouter\router->build_controller('notes::api::con...')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-10 10:17:45 [ERROR] <exception_handler>: could not build controller 'notes::api::controller::logout' - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(106): srouter\router->build_controller('notes::api::con...')
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-10 10:18:11 [ERROR] <exception_handler>: Call to a member function get_user_id() on null - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/logout.php(12): notes\api\dependency_container->get_logged_in_user()
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\logout->post()
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-10 10:18:11 [ERROR] <exception_handler>: Call to a member function get_user_id() on null - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/logout.php(12): notes\api\dependency_container->get_logged_in_user()
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\logout->post()
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-10 10:18:22 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:18:22 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:18:23 [ERROR] <exception_handler>: Call to a member function get_user_id() on null - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/logout.php(12): notes\api\dependency_container->get_logged_in_user()
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\logout->post()
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-10 10:18:23 [ERROR] <exception_handler>: Call to a member function get_user_id() on null - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/logout.php(12): notes\api\dependency_container->get_logged_in_user()
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\logout->post()
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-10 10:19:12 [INFO] <login>: user default has logged in
+2021-12-10 10:19:12 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:19:12 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:19:15 [ERROR] <exception_handler>: Call to a member function get_user_id() on null - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/logout.php(12): notes\api\dependency_container->get_logged_in_user()
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\logout->post()
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-10 10:19:15 [ERROR] <exception_handler>: Call to a member function get_user_id() on null - #0 /mnt/dev/htdocs/notes/src/notes/api/controller/logout.php(12): notes\api\dependency_container->get_logged_in_user()
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\logout->post()
+#2 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#3 {main}
+2021-12-10 10:19:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:19:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:19:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:19:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:19:47 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 10:19:47 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 10:19:51 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:19:51 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:19:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:19:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:19:53 [INFO] <logout>: user 'default' logged out
+2021-12-10 10:20:02 [INFO] <login>: user default has logged in
+2021-12-10 10:20:02 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:20:02 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:20:03 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:20:03 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:20:03 [INFO] <logout>: user 'default' logged out
+2021-12-10 10:20:07 [INFO] <login>: user default has logged in
+2021-12-10 10:20:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:20:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:20:15 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:20:15 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:20:15 [INFO] <logout>: user 'default' logged out
+2021-12-10 10:20:19 [INFO] <login>: user default has logged in
+2021-12-10 10:20:19 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:20:19 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:25:46 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:25:46 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:26:09 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:26:09 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:26:30 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:26:30 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:26:38 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:26:38 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:27:22 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:27:22 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:27:33 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:27:34 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:27:51 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:27:51 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 10:28:40 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 10:28:40 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 12:20:46 [NOTICE] <session>: token ZySlwkSadjCaiMGHYXP6S3xSa/ZlhHmK5X1cQ6CNa+NDR5dXdrhRZ9iRh7dcvvvB9f7NuUEUY/D92bk6Wet6Rg== expired
+2021-12-10 12:22:01 [NOTICE] <session>: token ZySlwkSadjCaiMGHYXP6S3xSa/ZlhHmK5X1cQ6CNa+NDR5dXdrhRZ9iRh7dcvvvB9f7NuUEUY/D92bk6Wet6Rg== expired
+2021-12-10 12:22:05 [INFO] <login>: user default has logged in
+2021-12-10 12:22:05 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 12:22:05 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 12:24:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 12:24:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 12:26:06 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 12:26:06 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 12:27:23 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 12:27:23 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 12:28:42 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 12:28:42 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:26:46 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:26:46 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:26:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:26:50 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:27:03 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:27:03 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:27:44 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:27:44 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:27:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:27:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:27:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:27:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:27:59 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:27:59 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:28:06 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:28:06 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:28:37 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:28:37 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:28:51 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:28:51 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:29:31 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:29:31 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:29:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:29:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:31:04 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:31:04 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:31:09 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:31:09 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:31:22 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:31:22 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:33:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:33:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:33:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:33:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:33:16 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:33:16 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:33:38 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:33:38 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:33:38 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:33:38 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:33:38 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:33:38 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:34:20 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:34:20 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:34:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:34:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:34:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:34:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:34:35 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:34:35 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:34:44 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:34:44 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:34:44 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:34:44 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:34:44 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:34:44 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:35:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:35:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:13 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:13 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:36:13 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:13 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:36:13 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:36:13 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:36:20 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:20 [INFO] <logged_in_authorizer>: missing auth header, aborting
+2021-12-10 13:36:20 [ERROR] <exception_handler>: failed to authorize using logged_in - #0 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#1 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#2 {main}
+2021-12-10 13:36:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:36:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:36:28 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:36:28 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(63): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:36:56 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:56 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:36:56 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:36:56 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:36:56 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:36:56 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:36:56 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:36:56 [ERROR] <exception_handler>: could not update entity: entity could not be found for update - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:43:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:43:50 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:43:50 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:43:50 [ERROR] <exception_handler>: could not update entity: Argument 1 passed to sorm\pdo_storage_interface::to_pdo_value() must be an instance of sorm\internal\value, null given, called in /mnt/dev/htdocs/notes/src/external/sorm/pdo_storage_interface.php on line 151 - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:43:50 [ERROR] <exception_handler>: could not update entity: Argument 1 passed to sorm\pdo_storage_interface::to_pdo_value() must be an instance of sorm\internal\value, null given, called in /mnt/dev/htdocs/notes/src/external/sorm/pdo_storage_interface.php on line 151 - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:43:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:43:50 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:43:50 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:43:50 [ERROR] <exception_handler>: could not update entity: Argument 1 passed to sorm\pdo_storage_interface::to_pdo_value() must be an instance of sorm\internal\value, null given, called in /mnt/dev/htdocs/notes/src/external/sorm/pdo_storage_interface.php on line 151 - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:43:50 [ERROR] <exception_handler>: could not update entity: Argument 1 passed to sorm\pdo_storage_interface::to_pdo_value() must be an instance of sorm\internal\value, null given, called in /mnt/dev/htdocs/notes/src/external/sorm/pdo_storage_interface.php on line 151 - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:44:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:44:08 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:44:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:44:08 [ERROR] <exception_handler>: could not update entity: Call to a member function get_primary_key_name() on null - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:44:08 [ERROR] <exception_handler>: could not update entity: Call to a member function get_primary_key_name() on null - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:44:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:44:08 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:44:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:44:08 [ERROR] <exception_handler>: could not update entity: Call to a member function get_primary_key_name() on null - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:44:08 [ERROR] <exception_handler>: could not update entity: Call to a member function get_primary_key_name() on null - #0 /mnt/dev/htdocs/notes/src/notes/router/logged_in_authorizer.php(65): sorm\entity_manager->update(Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/srouter/router.php(261): notes\router\logged_in_authorizer->authorize(Object(notes\router\request), Object(srouter\route))
+#2 /mnt/dev/htdocs/notes/src/external/srouter/router.php(90): srouter\router->authorize(Array, Object(notes\router\request), Object(srouter\route))
+#3 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#4 {main}
+2021-12-10 13:44:14 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:44:14 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:44:14 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:44:14 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:44:14 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:44:14 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:47:11 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:47:11 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:47:11 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:47:11 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:47:11 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:47:11 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:47:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:47:36 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:47:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:47:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:47:36 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:47:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:48:22 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:48:22 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:48:22 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:48:22 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:48:22 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:48:22 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:07 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:07 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:07 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:07 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:07 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:07 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:10 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-10 13:54:21 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:21 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:21 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:21 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:21 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:21 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:24 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:24 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:26 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:26 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:26 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:29 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:29 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:29 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:54:29 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:54:29 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:54:29 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:58:11 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:58:11 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:58:11 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:58:12 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:58:12 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:58:12 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:58:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:58:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:58:16 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:58:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:58:16 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:58:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:58:29 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:58:29 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 13:58:29 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:58:29 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 13:58:29 [INFO] <logged_in_authorizer>: found a session by GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A==
+2021-12-10 13:58:29 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:12:11 [NOTICE] <session>: token GF0S3pD7xAxN7AJatMrLVtn4ZJx3TzSJZ+obG/AMB/T83x0393kIuDhaX5M25dpksjhfXYU5t20PztQb0Mvc1A== not found
+2021-12-10 14:12:15 [ERROR] <exception_handler>: Call to undefined method notes\entities\user_session::set_color_id() - #0 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(85): sorm\internal\entity_inflator->set_value_to_property(1, 'notes\\entities\\...', Object(sorm\internal\entity_definition_property), Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(34): sorm\internal\entity_inflator->set_entity_default_values(Object(notes\entities\user_session), Object(sorm\internal\entity_definition))
+#2 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(149): sorm\internal\entity_inflator->build_entity(Object(sorm\internal\entity_definition))
+#3 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(46): sorm\entity_manager->build('notes\\entities\\...')
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'default')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-10 14:12:15 [ERROR] <exception_handler>: Call to undefined method notes\entities\user_session::set_color_id() - #0 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(85): sorm\internal\entity_inflator->set_value_to_property(1, 'notes\\entities\\...', Object(sorm\internal\entity_definition_property), Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(34): sorm\internal\entity_inflator->set_entity_default_values(Object(notes\entities\user_session), Object(sorm\internal\entity_definition))
+#2 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(149): sorm\internal\entity_inflator->build_entity(Object(sorm\internal\entity_definition))
+#3 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(46): sorm\entity_manager->build('notes\\entities\\...')
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'default')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-10 14:12:49 [ERROR] <exception_handler>: Call to undefined method notes\entities\user_session::set_color_id() - #0 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(85): sorm\internal\entity_inflator->set_value_to_property(1, 'notes\\entities\\...', Object(sorm\internal\entity_definition_property), Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(34): sorm\internal\entity_inflator->set_entity_default_values(Object(notes\entities\user_session), Object(sorm\internal\entity_definition))
+#2 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(149): sorm\internal\entity_inflator->build_entity(Object(sorm\internal\entity_definition))
+#3 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(46): sorm\entity_manager->build('notes\\entities\\...')
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'default')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-10 14:12:49 [ERROR] <exception_handler>: Call to undefined method notes\entities\user_session::set_color_id() - #0 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(85): sorm\internal\entity_inflator->set_value_to_property(1, 'notes\\entities\\...', Object(sorm\internal\entity_definition_property), Object(notes\entities\user_session))
+#1 /mnt/dev/htdocs/notes/src/external/sorm/internal/entity_inflator.php(34): sorm\internal\entity_inflator->set_entity_default_values(Object(notes\entities\user_session), Object(sorm\internal\entity_definition))
+#2 /mnt/dev/htdocs/notes/src/external/sorm/entity_manager.php(149): sorm\internal\entity_inflator->build_entity(Object(sorm\internal\entity_definition))
+#3 /mnt/dev/htdocs/notes/src/notes/api/controller/login.php(46): sorm\entity_manager->build('notes\\entities\\...')
+#4 /mnt/dev/htdocs/notes/src/external/srouter/router.php(119): notes\api\controller\login->post('default', 'default')
+#5 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#6 {main}
+2021-12-10 14:13:01 [INFO] <login>: user default has logged in
+2021-12-10 14:13:05 [INFO] <login>: user default has logged in
+2021-12-10 14:13:05 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:13:05 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:13:05 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:13:05 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:13:05 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:13:05 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:15:56 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:15:56 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:15:56 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:15:56 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:15:56 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:15:56 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:21 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:21 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:21 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:21 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:21 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:21 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:35 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:35 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:49 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:49 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:49 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:51 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:52 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:52 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:52 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:16:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:18:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:18:55 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:18:55 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:18:55 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:18:58 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:18:58 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:18:58 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:21 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:19:58 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:22:12 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:22:12 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:22:12 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:22:12 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:22:12 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:22:12 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:22:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:22:16 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:22:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:22:18 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:22:18 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:22:18 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:22:26 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:22:26 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:22:26 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:22:26 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:22:26 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:22:26 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:23:46 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:23:46 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:23:46 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:23:46 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:23:46 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:23:46 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:23:52 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:23:52 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:23:52 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:23:52 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:23:52 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:23:52 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:17 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:17 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:17 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:17 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:17 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:17 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:28 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:28 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:44 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:44 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:44 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:44 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:44 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:44 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:50 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:50 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:24:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:24:50 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:24:50 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:02 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:02 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:02 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:02 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:02 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:02 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:06 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:06 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:06 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:07 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:07 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:07 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:08 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:08 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:13 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:13 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:13 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:13 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:13 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:13 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:16 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:16 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:45 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:45 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:45 [INFO] <logged_in_authorizer>: will update the session
+2021-12-10 14:25:45 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-10 14:25:45 [INFO] <logged_in_authorizer>: found a session by kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA==
+2021-12-10 14:25:45 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:54:41 [NOTICE] <session>: token kfrjafNK/UbMPB9y5IsWuQn0XdzVqyr4/8W0GObeWV4DxzKZaLf5c50jgfB72G+/p0nDzKtTBoW41CgtdZrvOA== expired
+2021-12-13 06:54:50 [INFO] <login>: invalid password for username default
+2021-12-13 06:54:52 [INFO] <login>: user default has logged in
+2021-12-13 06:54:52 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:54:52 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:54:52 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:54:52 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:54:52 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:54:52 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:54:59 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:54:59 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:54:59 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:54:59 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:54:59 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:54:59 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:56:10 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:56:10 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:56:10 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:56:10 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:56:10 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:56:10 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:56:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:56:16 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:56:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:56:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:56:16 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:56:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:56:27 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:56:27 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:56:27 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:56:27 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:56:27 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:56:27 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:57:02 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:57:02 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:57:02 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:57:02 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:57:02 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:57:02 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 06:57:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 06:57:08 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 06:57:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:01:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:01:16 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:01:16 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:01:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:01:16 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:01:16 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:01:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:01:35 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:01:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:01:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:01:35 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:01:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:01:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:01:50 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:01:50 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:01:50 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:01:50 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:01:50 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:08 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:08 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:08 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:08 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:25 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:25 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:25 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:25 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:25 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:25 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:37 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:37 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:37 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:37 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:37 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:37 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:48 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:02:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:02:48 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:02:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:03:00 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:03:00 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:03:00 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:03:00 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:03:00 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:03:00 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:05:03 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:05:03 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:05:03 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:05:03 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:05:03 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:05:03 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:09:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:09:32 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:09:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:09:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:09:32 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:09:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:10:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:10:32 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:10:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:10:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:10:32 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:10:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:11:43 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:11:43 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:11:43 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:11:43 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:11:43 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:11:43 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:13:04 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:13:04 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:13:04 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:13:04 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:13:04 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:13:04 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:14:10 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:14:10 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:14:10 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:14:10 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:14:10 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:14:10 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:14:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:14:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:14:28 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:14:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:14:28 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:14:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:14:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:14:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:14:32 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:14:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:14:32 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:14:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:15:19 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:15:19 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:15:19 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:15:19 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:15:19 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:15:19 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:16:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:16:53 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:16:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:16:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:16:53 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:16:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:17:42 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:17:42 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:17:42 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:17:42 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:17:42 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:17:42 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:49:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:49:24 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:49:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:49:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:49:24 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:49:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:51:30 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:51:30 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:51:30 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:51:30 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:51:30 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:51:30 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:51:41 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:51:41 [INFO] <logged_in_authorizer>: found a session by qoXTqFEU8Qc+pzfQgCp+Zs8CudcpkKTVvRUbUYFBLgPJ7LXgEIb7qGo8i+Pay2+uik/8weUQ/RFD9kjYgmO8kw==
+2021-12-13 07:51:41 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:51:41 [INFO] <logout>: user 'default' logged out
+2021-12-13 07:51:47 [INFO] <login>: user default has logged in
+2021-12-13 07:51:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:51:47 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 07:51:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 07:51:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 07:51:47 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 07:51:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:05:41 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:05:41 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:05:41 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:05:41 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:05:41 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:05:41 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:05:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:05:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:05:48 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:05:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:05:48 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:05:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:05:55 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:05:55 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:05:55 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:05:55 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:05:55 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:05:55 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:06:02 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:06:02 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:06:02 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:06:02 [INFO] <user>: user with id 1 will commit 1 changes
+2021-12-13 08:06:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:06:24 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:06:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:06:24 [INFO] <user>: user with id 1 will commit 1 changes
+2021-12-13 08:06:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:06:28 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:06:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:06:28 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:06:28 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:06:28 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:06:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:06:32 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:06:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:06:32 [INFO] <user>: user with id 1 will commit 1 changes
+2021-12-13 08:06:49 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:06:49 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:06:49 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:07:31 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:07:31 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:07:31 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:07:31 [INFO] <user>: user with id 1 will commit 2 changes
+2021-12-13 08:07:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:07:36 [INFO] <logged_in_authorizer>: found a session by 2NBzcnwokRf6rfLUaarkt4cLCpUAjdmyguWi+Ug7BoLS0LbBFfjHOH1iC9rGSkoXVCJOxbNReAuJwHDBQltlPg==
+2021-12-13 08:07:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:07:36 [INFO] <logout>: user 'daniel' logged out
+2021-12-13 08:07:41 [INFO] <login>: invalid username default
+2021-12-13 08:07:47 [INFO] <login>: user daniel has logged in
+2021-12-13 08:07:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:07:47 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:07:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:07:47 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:07:47 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:07:47 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:55:13 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:55:13 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:55:13 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:55:13 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:55:13 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:55:13 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:55:55 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:55:55 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:55:55 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:55:55 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:55:55 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:55:55 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:56:11 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:56:11 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:56:11 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:56:11 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:56:11 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:56:11 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:56:25 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:56:25 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:56:25 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:56:25 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:56:25 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:56:25 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:56:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:56:48 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:56:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:56:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:56:48 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:56:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:57:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:57:24 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:57:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:57:24 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:57:24 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:57:24 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:57:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:57:48 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:57:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:57:48 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:57:48 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:57:48 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:57:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:57:54 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:57:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:57:54 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:57:54 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:57:54 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:59:31 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:59:31 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:59:31 [INFO] <logged_in_authorizer>: will update the session
+2021-12-13 08:59:31 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-13 08:59:31 [INFO] <logged_in_authorizer>: found a session by qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew==
+2021-12-13 08:59:31 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 06:56:15 [NOTICE] <session>: token qm/ckEttCzJRXt5+OXiOyZWeF006EpClPoBB/uqLNhQ00SbScz1LhQKJxyAntti1eeKWljA4VlTgIYdrK1t5ew== expired
+2021-12-14 07:07:52 [INFO] <login>: invalid username root
+2021-12-14 07:09:51 [INFO] <login>: invalid username root
+2021-12-14 07:09:59 [INFO] <login>: invalid username default
+2021-12-14 07:10:02 [INFO] <login>: invalid password for username daniel
+2021-12-14 07:10:04 [INFO] <login>: invalid password for username daniel
+2021-12-14 07:10:08 [INFO] <login>: invalid password for username daniel
+2021-12-14 07:10:14 [INFO] <login>: invalid username default
+2021-12-14 07:10:36 [INFO] <login>: user default has logged in
+2021-12-14 07:10:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:10:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:10:36 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:10:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:10:36 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:10:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:12:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:12:32 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:12:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:12:32 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:12:32 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:12:32 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:12:34 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:12:34 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:12:34 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:12:34 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:12:34 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:12:34 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:12:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:12:36 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:12:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:12:36 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:12:36 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:12:36 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:13:35 [ERROR] <exception_handler>:  - #0 /mnt/dev/htdocs/notes/router.php(54): srouter\router->route()
+#1 {main}
+2021-12-14 07:13:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:13:35 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:13:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:13:35 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:13:35 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:13:35 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:19:18 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:19:18 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:19:18 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:19:18 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:19:18 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:19:18 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:19:26 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:19:26 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:19:26 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:19:26 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:19:26 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:19:26 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:20:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:20:53 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:20:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:20:53 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:20:53 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:20:53 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:20:55 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:20:55 [INFO] <logged_in_authorizer>: will attempt to authorize request as logged in
+2021-12-14 07:20:55 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:20:55 [INFO] <logged_in_authorizer>: will update the session
+2021-12-14 07:20:55 [INFO] <logged_in_authorizer>: found a session by BtWJdDHt5ylncn7GsXoE/GnDJSsgQ6OJOdpu57auOjdjoslcNRNScIf84RHYgXz1Yo33zu0pRh/M2qnfyMRIww==
+2021-12-14 07:20:55 [INFO] <logged_in_authorizer>: will update the session

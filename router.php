@@ -1,9 +1,9 @@
 <?php
-require_once("src/autoload.php");
+require_once("private/src/autoload.php");
 
 try {
 
-	$config=new \notes\api\config(__DIR__."/conf/config.json");
+	$config=new \notes\api\config(__DIR__."/instance/conf/config.json");
 
 
 	$router_log_file=$config->get_router_log_file();
@@ -16,7 +16,7 @@ try {
 	//Setting up the router...
 	$request_factory=new \notes\router\factory\request_factory();
 	$uri_transformer=new \notes\router\uri_transformer($config->get_uri_transformer_lead());
-	$path_mapper=new \notes\router\path_mapper(__DIR__."/conf/routes.json");
+	$path_mapper=new \notes\router\path_mapper($config->get_routes_file());
 	$in_transformer_factory=new \notes\router\factory\in_transformer_factory();
 	$authorizer_factory=new \notes\router\factory\authorizer_factory($dependency_container);
 	$argument_extractor_factory=new \notes\router\factory\argument_extractor_factory();

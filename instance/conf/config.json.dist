@@ -1,0 +1,13 @@
+{
+	"uri_transformer_lead":"/notes/",
+	"sorm_map_file":"/var/www/htdocs/private/data/sorm_map_file.json",
+	"routes_file":"/var/www/htdocs/private/data/routes.json",
+	"app_log_file":"/var/www/htdocs/instance/applog/log.log",
+	"secure_assets_dir":"/var/www/htdocs/private/sess_assets",
+	"router_log_file":"",
+	"db_login":"****",
+	"db_pass":"****",
+	"db_host":"****",
+	"db_schema":"****",
+	"verbose_errors":false
+}
