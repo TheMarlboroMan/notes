@@ -78,12 +78,19 @@ const status_help=4;
 
 class toolbar {
 
-	constructor(_dom, _note_builder, _api, _storage) {
+	constructor(
+		_dom,
+		_note_builder,
+		_api,
+		_storage,
+		_info_bar
+	) {
 
 		this.note_builder=_note_builder;
 		this.api=_api;
 		this.sanitizer_i=new sanitizer();
 		this.storage=_storage;
+		this.info_bar=_info_bar;
 
 		this.status=status_regular;
 		this.nextstatus=0;
@@ -136,7 +143,7 @@ class toolbar {
 		.catch( (_err) => {
 
 			console.error(_err);
-			alert(_err);
+			this.info_bar.error(_err.message, 0);
 		});
 	}
 
@@ -199,7 +206,7 @@ class toolbar {
 
 		if(!username.length && !password.length) {
 
-			alert("username or password must be specified");
+			this.info_bar.warning("username or password must be specified", 60);
 			return;
 		}
 
@@ -212,7 +219,7 @@ class toolbar {
 
 			if(password != repeat_password) {
 
-				alert("passwords must be the same");
+				this.info_bar.warning("passwords must be the same", 60);
 				return;
 			}
 
@@ -227,7 +234,7 @@ class toolbar {
 			if(200===_res.status_code) {
 
 				this.set_username(username);
-				alert("your changes have been saved correctly");
+				this.info_bar.info("your changes have been saved correctly", 10);
 				return;
 			}
 
@@ -237,7 +244,7 @@ class toolbar {
 		.catch( (_err) => {
 
 			console.error(_err);
-			alert(_err);
+			this.info_bar.error(_err.message, 0);
 
 		})
 		.finally( () => {
@@ -261,7 +268,7 @@ class toolbar {
 		})
 		.catch( (_err) => {
 
-			console.error(_err);
+			this.info_bar.error(_err.message, 0);
 			alert(_err);
 		});
 	}
@@ -269,11 +276,17 @@ class toolbar {
 
 class note_builder {
 
-	constructor(_note_template, _workspace, _api) {
+	constructor(
+		_note_template,
+		_workspace,
+		_api,
+		_info_bar
+	) {
 
 		this.note_template=_note_template;
 		this.workspace=_workspace;
 		this.api=_api;
+		this.info_bar=_info_bar;
 	}
 
 	build(_first) {
@@ -284,20 +297,24 @@ class note_builder {
 
 			this.workspace.insertBefore(clone, this.workspace.querySelector(".note:first-child"));
 			let dom_note=this.workspace.querySelector(".note:first-child");
-			return new note(dom_note, this.api);
+			return new note(dom_note, this.api, this.info_bar);
 		}
 		else {
 
 			this.workspace.appendChild(clone);
 			let dom_note=this.workspace.querySelector(".note:last-child");
-			return new note(dom_note, this.api);
+			return new note(dom_note, this.api, this.info_bar);
 		}
 	}
 }
 
 class note {
 
-	constructor(_dom, _api) {
+	constructor(
+		_dom,
+		_api,
+		_info_bar
+	) {
 
 		this.editing=false;
 
@@ -309,6 +326,7 @@ class note {
 
 		this.dom_root=_dom;
 		this.api=_api;
+		this.info_bar=_info_bar;
 
 		this.textarea=this.dom_root.querySelector("textarea");
 		this.text_container=this.dom_root.querySelector(".body .text");
@@ -323,7 +341,7 @@ class note {
 		this.ev_btn_color=this.btn_color.addEventListener("click", () => {this.cycle_color();}, true);
 		this.ev_btn_edit=this.btn_edit.addEventListener("click", () => {this.toggle_edit();}, true);
 		this.ev_text_container=this.text_container.addEventListener("click", () => {this.toggle_edit();}, true);
-		this.text=this.textarea.value.trim();
+		this.autosave_interval=null;
 	}
 
 	unload_events() {
@@ -332,10 +350,18 @@ class note {
 		this.btn_color.removeEventListener("click", this.ev_btn_color);
 		this.btn_edit.removeEventListener("click", this.ev_btn_edit);
 		this.text_container.removeEventListener("click", this.ev_text_container);
+
+		if(null!==this.autosave_interval) {
+
+			clearInterval(this.autosave_interval);
+			this.autosave_interval=null;
+		}
+
 		this.ev_btn_delete=null;
 		this.ev_btn_color=null;
 		this.ev_btn_edit=null;
 		this.ev_text_container=null;
+
 	}
 
 	load_from_node(_node) {
@@ -397,17 +423,15 @@ class note {
 
 	set_as_read() {
 
-		let text=this.textarea.value.trim();
-
 		this.dom_root.classList.remove("edit");
 		this.dom_root.classList.add("read");
 
-		//save if there were changes.
-		if(text != this.text && text.length) {
+		this.attempt_save();
 
-			this.text=text;
-			this.text_container.innerHTML=this.text_to_view(this.text);
-			this.save();
+		if(null!==this.autosave_interval) {
+
+			clearInterval(this.autosave_interval);
+			this.autosave_interval=null;
 		}
 	}
 
@@ -416,6 +440,22 @@ class note {
 		this.dom_root.classList.add("edit");
 		this.dom_root.classList.remove("read");
 		this.textarea.focus();
+
+		this.autosave_interval=setInterval(
+			() => {this.attempt_save();},
+			60000
+		);
+	}
+
+	attempt_save() {
+
+		let text=this.textarea.value.trim();
+		if(text != this.text && text.length) {
+
+			this.text=text;
+			this.text_container.innerHTML=this.text_to_view(this.text);
+			this.save();
+		}
 	}
 
 	cycle_color() {
@@ -433,7 +473,7 @@ class note {
 		.catch( (_err) => {
 
 			console.error(_err);
-			alert(_err);
+			this.info_bar.error(_err.message, 0);
 		})
 		.finally( () => {
 
@@ -480,7 +520,7 @@ class note {
 		.catch( (_err) => {
 
 			console.error(_err);
-			alert(_err);
+			this.info_bar.error(_err.message, 0);
 		})
 		.finally( () => {
 
@@ -496,6 +536,7 @@ class note {
 				let location=_res.headers.get("location");
 				this.id=parseInt(location.split("/").pop(), 10);
 				this.dom_root.classList.remove("new");
+				this.info_bar.info("note created", 10);
 				return true;
 			}
 		)
@@ -504,11 +545,11 @@ class note {
 	update() {
 
 		return this.api.patch("notes/"+this.id, {contents:this.text, color_id:this.color_id}, [200])
-			.then( (_res) => {
+		.then( (_res) => {
 
-				return true;
-			}
-		);
+			this.info_bar.info("note updated", 10);
+			return true;
+		});
 	}
 
 	delete() {
@@ -531,17 +572,17 @@ class note {
 
 			this.unload_events();
 			this.dom_root.remove();
+			this.info_bar.info("note deleted", 10);
 		})
 		.catch( (_err) => {
 
 			this.btn_delete.disabled=false;
 			console.error(_err);
-			alert(_err);
+			this.info_bar.error(_err.message, 0);
 		});
 	}
 
 	text_to_view(_text) {
-
 
 		let t=document.createElement("b");
 		t.innerHTML=_text;
@@ -574,8 +615,10 @@ class note {
 }
 
 function start_ui(
-	_storage
+	_storage,
+	_info_bar
 ) {
+
 	//build workspace DOM...
 	let workspace_prototype=document.getElementById("workspace");
 	let wsclone=document.importNode(workspace_prototype.content, true);
@@ -594,15 +637,19 @@ function start_ui(
 	let builder=new note_builder(
 		document.getElementById("note"),
 		ws,
-		api_i
+		api_i,
+		_info_bar
 	);
 
 	let tbar=new toolbar(
 		tb,
 		builder,
 		api_i,
-		_storage
+		_storage,
+		_info_bar
 	);
+
+	_info_bar.info("retrieving notes...", 5);
 
 	api_i.get("notes", [200])
 	.then( (_res) => {
@@ -614,6 +661,7 @@ function start_ui(
 			note.load_from_node(_node);
 		});
 		tbar.show();
+		_info_bar.info("ready", 5);
 	});
 
 }

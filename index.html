@@ -22,7 +22,7 @@
 			</label>
 
 			<label>
-				<input type="pass" name="pass" autocomplete="off" placeholder="password" >
+				<input type="password" name="pass" autocomplete="off" placeholder="password" >
 			</label>
 
 			<button
@@ -39,11 +39,26 @@
 		</form>
 	</div>
 </template>
+<template id="info_bar">
+	<div class="info_bar">
+		...
+	</div>
+</template>
 </body>
 <script type="text/javascript">
+
+let info_bar_clone=document.importNode(document.getElementById("info_bar").content, true);
+document.body.appendChild(info_bar_clone);
+let ibar=new info_bar(
+	document.body.querySelector(".info_bar")
+);
+
+ibar.info("Welcome, input your login and password", 10);
+
 let l=new login(
 	document.getElementById("login"),
-	window.localStorage
+	window.localStorage,
+	ibar
 );
 </script>
 </html>

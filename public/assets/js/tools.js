@@ -257,3 +257,53 @@ function setup_form_submit(_form, _btn, _fn) {
 		true
 	);
 }
+
+class info_bar {
+
+	constructor(_dom) {
+
+		this.container=_dom;
+		this.timeout=null;
+	}
+
+	info(_text, _timeout) {
+
+		this.message(_text, _timeout, "info");
+	}
+
+	warning(_text, _timeout) {
+
+		this.message(_text, _timeout, "warning");
+	}
+
+	error(_text, _timeout) {
+
+		this.message(_text, _timeout, "error");
+	}
+
+	message(_text, _timeout, _class) {
+
+		//set message
+		this.container.classList.remove("info", "warning", "error");
+		this.container.classList.add(_class);
+
+		this.container.innerHTML=_text;
+
+		//start a timeout before clearing the message...
+		if(null !== this.timeout) {
+
+			clearTimeout(this.timeout);
+			this.timeout=null;
+		}
+
+		if(0 !== _timeout) {
+
+			this.timeout=setTimeout( () => {this.clear_message();}, _timeout * 1000);
+		}
+	}
+
+	clear_message() {
+
+		this.container.innerHTML="";
+	}
+}

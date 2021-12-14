@@ -63,3 +63,32 @@ body {
 	background: url(../images/background.jpg) no-repeat center center fixed;
 	background-size: cover;
 }
+
+.info_bar {
+
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	z-index: 100;
+	padding: 1em;
+	text-align: center;
+	background-color: rgba(64, 128, 255, 0.6);
+	min-height: 3em;
+	color: #fff;
+	font-weight: bold;
+}
+
+.info_bar.info {
+
+	background-color: rgba(64, 128, 255, 0.6);
+}
+
+.info_bar.warning {
+
+	background-color: rgba(255, 160, 105, 0.6);
+}
+
+.info_bar.error {
+
+	background-color: rgba(252, 91, 91, 0.6);
+}

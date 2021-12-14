@@ -1,7 +1,7 @@
 //define the login UI class
 class login {
 
-	constructor(_template, _storage) {
+	constructor(_template, _storage, _info_bar) {
 
 		this.storage=_storage;
 
@@ -11,6 +11,7 @@ class login {
 		this.container=document.querySelector("#login_container");
 		this.form=this.container.querySelector("#form_login");
 		this.message_container=this.container.querySelector("#login_message");
+		this.info_bar=_info_bar;
 		this.token="";
 		this.hide();
 
@@ -145,6 +146,8 @@ class login {
 
 		return new Promise( (_resolve, _reject) => {
 
+			this.info_bar.info("retrieving application code...", 0);
+
 			let uri=document.baseURI+"sassets/js/app.js?tok="+tok;
 			let script=document.createElement("script");
 			script.type="text/javascript";
@@ -160,6 +163,8 @@ class login {
 
 			return new Promise( (_resolve, _reject) => {
 
+				this.info_bar.info("retrieving application style...", 0);
+
 				let uri=document.baseURI+"sassets/js/app.css?tok="+tok;
 				let link=document.createElement("link");
 				link.type="text/css";
@@ -174,18 +179,30 @@ class login {
 		})
 		.then( (_res) => {
 
+			this.info_bar.info("retrieving application markup...", 0);
+
 			return chain_fetch(
 				document.baseURI+"sassets/js/app.html?tok="+tok,
 				{method:"GET", response:"full", type:"text"}
 			)
 			.then( (_res) => {
 
-				document.body.innerHTML+=_res.body;
+				let b=document.createElement("b");
+				b.innerHTML=_res.body;
+
+				while(b.childNodes.length) {
+
+					let node=b.firstChild;
+					node.remove();
+					document.body.appendChild(node);
+				}
 			});
 		})
 		.then( (_res) => {
 
-			start_ui(this.storage);
+			this.info_bar.info("starting application...", 0);
+
+			start_ui(this.storage, this.info_bar);
 		});
 	}
 }
